@@ -1,0 +1,11 @@
+# catalogue tags the engine uses for general configuration
+
+TAG "Pointer Information"
+"2 1 1"
+"2 2"
+"lifhand"
+
+TAG "Pray System File Extensions"
+"agent"
+"agents"
+
