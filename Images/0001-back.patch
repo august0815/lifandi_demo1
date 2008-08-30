@@ -1,0 +1,210 @@
+From 602e92f62aeee86ff34bbc18ef3fcc27357468e6 Mon Sep 17 00:00:00 2001
+From: mm <augustulus@freenet.de>
+Date: Tue, 19 Aug 2008 17:22:09 +0200
+Subject: [PATCH] back
+
+---
+ Catalogue/messages.catalogue |  190 ------------------------------------------
+ 1 files changed, 0 insertions(+), 190 deletions(-)
+
+diff --git a/Catalogue/messages.catalogue b/Catalogue/messages.catalogue
+index ee4290c..8d569e2 100644
+--- a/Catalogue/messages.catalogue
++++ b/Catalogue/messages.catalogue
+@@ -2,193 +2,3 @@
+ ### general misc. messages for the gui n'stuff
+ 
+ 
+-TAG "edynn_message"
+-#0
+-"Are you sure you want to quit? (Game will be saved.)"
+-"Sorry, your creature could not be exported. Perhaps it is already in the My Creatures folder."
+-"There aren't any creatures in your 'My Creatures' folder."
+-"Sorry, there was a problem importing '"
+-"'."
+-#5
+-"To Import '"
+-"', it must be cloned, and its history erased. Import anyway?"
+-"Keyboard Shortcuts (F2-F12)\n These can be customised; hold ctrl and the key to set the current location to it, hold shift and the key to set a gui function to it. Press the key to activate it once it's been set. \n\n Here are some useful gui functions: \n  own  - opens the owner's kit\n  med  - opens the med kit\n  sci  - opens the science kit\n  inj  - opens the injector kit"
+-"You can't load the world you're in! :)"
+-"You can't delete the world you're in! :)"
+-#10
+-"Are you sure you want to delete "
+-"Invalid world name. maybe you already have a world with this name?"
+-"History cannot be erased: "
+-"this norn doesn't exist!?"
+-"genome is in use."
+-#15
+-"history? you won't be able to change the tombstone."
+-"This norn isn't dead! Do you really want to make a tombstone?"
+-"Are you sure you want to delete this tombstone?"
+-"Delete history of all dead norns without tombs?"
+-"Delete history of all dead norns with tombs?"
+-#20
+-"Make tombstones for all dead norns?"
+-"Old password:"
+-"Invalid Password!"
+-"New password:"
+-"Confirm password:"
+-#25
+-"Error: Passwords don't match!"
+-"Enter password:"
+-"There is already a profile with this name. Overwrite?"
+-"Really delete this profile?"
+-
+-
+-TAG "inject"
+-#0
+-"Error installing image file. This agent might be broken."
+-"Script not found: "
+-"Dependency error: no agent type!"
+-"Dependency error: no dependency count!"
+-"Dependency #"
+-#5
+-" failed ("
+-" category invalid."
+-" missing!"
+-"Injecting..."
+-"Injection Failed: "
+-#10
+-"No agents found."
+-
+-
+-TAG "import"
+-#0
+-"Import/Export"
+-"Exported on "
+-"from world "
+-"unknown"
+-"Exporting..."
+-#5
+-"Importing..."
+-"Sorry, "
+-"a creature"
+-" could not be exported. Perhaps it is already in the My Creatures folder."
+-
+-
+-TAG "eggs"
+-#0
+-"Hatchery"
+-"Unpacking Images..."
+-"Dependency Error!"
+-"Creating Egg..."
+-"Genome Injector:"
+-
+-
+-TAG "edynn_volume"
+-#0
+-"Music: "
+-"Sounds: "
+-"Creature burble: "
+-"on"
+-"off"
+-
+-TAG "edynn_gui_misc"
+-#0
+-"Warp-in Limit: "
+-"Breeding Limit: "
+-"Skins & GUI"
+-"Hand Name: "
+-"Egg Limit: "
+-#5
+-"Changing..."
+-"Function:"
+-"World Age: "
+-"\nEngine Age: "
+-"\nTick Satisfaction: "
+-#10
+-"\nLast Tick (ms): "
+-"\nIdeal (ms): "
+-"\nTicks/Sec: "
+-"Icons"
+-"GUI Snap Off"
+-#15
+-"GUI Snap On"
+-"GUI Lock Off"
+-"GUI Lock On"
+-"Autosave (min): "
+-"Metaroom: "
+-#20
+-"\nRoom: "
+-"\nType: "
+-"Autoload Off"
+-"Autoload On"
+-"Clear All"
+-
+-
+-TAG "titles"
+-#0
+-"Load World"
+-"Eco Kit"
+-"Tombstones"
+-"Injector Kit"
+-"Alert Settings"
+-
+-TAG "room_types"
+-#0
+-" Atmosphere"
+-" Wooden Walkway"
+-" Concrete Walkway"
+-" Indoor Concrete"
+-" Outdoor Concrete"
+-#5
+-" Normal Soil"
+-" Boggy Soil"
+-" Drained Soil"
+-" Fresh Water"
+-" Salt Water"
+-#10
+-" Ettin Den"
+-
+-TAG "hist_alerts"
+-#0
+-"3"
+-"Birth"
+-"7"
+-"Death"
+-"8"
+-#5
+-"Pregnancy"
+-"11"
+-"Egg Laid"
+-"16"
+-"Warp Out"
+-#10
+-"17"
+-"Warp In"
+-
+-
+-###########################################################
+-##override tags from ds/c3
+-
+-TAG OVERRIDE "CAOS command line"
+-"CAOS Command Line\nWarning! You can damage your world with this utility.\nPress Shift+Ctrl+C to close it now."
+-"\n> "
+-"OK"
+-
+-TAG OVERRIDE "portals"
+-#0
+-"Portal Dispensor"
+-"<unnamed>"
+-"Configure"
+-"Release"
+-"<unnamed portal"
+-# 5
+-"Create"
+-"No portal to name"
+-"Changing name ..."
+-"Only 10 portals allowed"
+-"This warp portal has been identified as: "
+-
+-
+-TAG OVERRIDE "Agent Help 0 0 0"
+-"Unknown Agent"
+-"***"
+-
+-TAG OVERRIDE "Agent Help Something"
+-"Sadly we don't know exactly what this unknown agent is!\n\nBut we do know its classifier:\n\n"
+-- 
+1.5.4.3
+
