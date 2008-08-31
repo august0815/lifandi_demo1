@@ -1,5 +1,5 @@
  ***********************************************************************
- *             control.k.cos
+ *             button.k.cos
  ***********************************************************************
  *            
  *      Copyright 2008 august0815 <augustulus@freenet.de>
@@ -22,58 +22,54 @@
  *      This file was autocompiled with kaos written by Bryan Donlan   *
  ***********************************************************************
 
-NEW: SIMP 1 1 150 "blnk" 0 0 8000
-DCOR 1
-ATTR 16
+NEW: SIMP 1 1 100 "buttons" 1 0 100
+ATTR 4
 CLAC 0
-MVTO 1190 10
-NEW: SIMP 1 1 151 "blnk" 0 0 8000
-DCOR 1
-ATTR 16
+MVTO 1210 850
+NEW: SIMP 1 1 110 "buttons" 3 1 100
+ATTR 4
 CLAC 0
-MVTO 1190 12
-NEW: SIMP 1 1 152 "blnk" 0 0 8000
-DCOR 1
-ATTR 16
+MVTO 1210 770
+NEW: SIMP 1 1 120 "buttons" 3 2 100
+ATTR 4
 CLAC 0
-MVTO 530 460
-ENUM 1 1 150
-MESG WRT+ TARG 1000 1 0 0
-
-NEXT
-ENUM 1 1 151
-MESG WRT+ TARG 1000 0.95 0 0
-
-NEXT
-ENUM 1 1 152
-MESG WRT+ TARG 1000 0.6 0 0
-
-NEXT
-SCRP 1 1 152 1000
-EMIT 3 _P1_
+MVTO 1210 810
+SCRP 1 1 110 2
+TARG OWNR
+CLAC 0
+RTAR 1 1 10
+FLTO -1000 -1000
+TICK 0
+CLAC 0
 ENDM
 
-SCRP 1 1 151 1000
-EMIT 2 _P1_
+SCRP 1 1 110 1
+TARG OWNR
+CLAC 1
+RTAR 1 1 10
+FLTO 30 860
+TICK 2
 ENDM
 
-SCRP 1 1 150 1000
-EMIT 1 _P1_
+SCRP 1 1 100 1
+RTAR 1 1 100
+CLAC 0
+CMRA 1600 300 0
 ENDM
 
 RSCR
-ENUM 1 1 152
+ENUM 1 1 100
 KILL TARG
 
 NEXT
-ENUM 1 1 151
+ENUM 1 1 110
 KILL TARG
 
 NEXT
-ENUM 1 1 150
+ENUM 1 1 120
 KILL TARG
 
 NEXT
-SCRX 1 1 150 1000
-SCRX 1 1 151 1000
-SCRX 1 1 152 1000
+SCRX 1 1 100 1
+SCRX 1 1 110 1
+SCRX 1 1 110 2
