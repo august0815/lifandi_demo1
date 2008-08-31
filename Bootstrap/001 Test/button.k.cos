@@ -1,0 +1,75 @@
+ ***********************************************************************
+ *             button.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: SIMP 1 1 100 "buttons" 1 0 100
+ATTR 4
+CLAC 0
+MVTO 1210 850
+NEW: SIMP 1 1 110 "buttons" 3 1 100
+ATTR 4
+CLAC 0
+MVTO 1210 770
+NEW: SIMP 1 1 120 "buttons" 3 2 100
+ATTR 4
+CLAC 0
+MVTO 1210 810
+SCRP 1 1 110 2
+TARG OWNR
+CLAC 0
+RTAR 1 1 10
+FLTO -1000 -1000
+TICK 0
+CLAC 0
+ENDM
+
+SCRP 1 1 110 1
+TARG OWNR
+CLAC 1
+RTAR 1 1 10
+FLTO 30 860
+TICK 2
+ENDM
+
+SCRP 1 1 100 1
+RTAR 1 1 100
+CLAC 0
+CMRA 1600 300 0
+ENDM
+
+RSCR
+ENUM 1 1 100
+KILL TARG
+
+NEXT
+ENUM 1 1 110
+KILL TARG
+
+NEXT
+ENUM 1 1 120
+KILL TARG
+
+NEXT
+SCRX 1 1 100 1
+SCRX 1 1 110 1
+SCRX 1 1 110 2
