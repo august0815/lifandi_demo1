@@ -1,0 +1,89 @@
+ ***********************************************************************
+ *             !zswitch.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: COMP 2 2 180 "buttons" 7 0 10
+PART -1
+ALPH 256 1
+PART 0
+POSE 0
+PAT: BUTT 2 "demo1" 3 2 80 300 0 [1] 2001 1
+PAT: BUTT 3 "demo1" 5 2 340 300 0 [1] 500 1
+PAT: FIXD 4 "demo1" 7 25 80 0 "blackontransparentchars"
+PART 4
+FRMT 0 0 0 0 2 0 2
+PTXT "**Welcome to the Demo of lifandi , an open source community game.*** 		 *******For more information see http://lifandi.ccdevnet.org .*****	    This demo is very simple demo , klick on 'ok' to get to the demoworld screen .***	            ."
+SETV AVAR TARG 74 0
+MVTO 1400 100
+TICK 100
+MESG WRT+ TARG 2000 0 0 0
+TICK 40
+SCRP 2 2 180 2001
+CMRA 200 200 0
+ENDM
+
+SCRP 2 2 180 500
+
+LOOP
+ADDV VA00 32
+PART -1
+SETV VA01 VA00
+ALPH VA01 1
+WAIT 1
+UNTL VA00 GT 256
+
+WAIT 10
+QUIT
+KILL OWNR
+ENDM
+
+SCRP 2 2 180 2000
+INST
+LOCK
+TICK 0
+LOOP
+LOCK
+PART -1
+SETV VA00 256
+LOOP
+SETV VA01 VA00
+ALPH VA01 1
+WAIT 0
+SUBV VA00 1
+UNTL VA00 LT 0
+
+ALPH VA00 0
+SETV AVAR OWNR 74 1
+SETA VA02 OWNR
+UNTL AVAR OWNR 74 NE 0
+
+ENDM
+
+RSCR
+ENUM 2 2 180
+KILL TARG
+
+NEXT
+SCRX 2 2 180 2000
+SCRX 2 2 180 2001
+SCRX 2 2 180 500
