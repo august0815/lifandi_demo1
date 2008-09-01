@@ -21,10 +21,13 @@ define numeric S_POINTER = 0 ;
 define numeric S_SIMPLEMONITOR =10 ;
 define numeric S_DUMMY = 12 ;
 define numeric S_BACKTOASTART = 100;
+define numeric S_MONITORBUTTON = 110;
+define numeric S_INJECTBUTTON = 120;
 define numeric S_LIGHT = 150;
 define numeric S_HEAT = 151;
 define numeric S_NUTRIENT = 152;
 define numeric S_FOO = 1000;
+define numeric S_SWITCH = 180;
 //2
 
 define numeric S_BUBBLE_HANDLING = 3;

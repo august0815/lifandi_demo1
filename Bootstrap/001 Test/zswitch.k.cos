@@ -22,7 +22,7 @@
  *      This file was autocompiled with kaos written by Bryan Donlan   *
  ***********************************************************************
 
-NEW: COMP 2 2 180 "buttons" 7 0 10
+NEW: COMP 2 2 180 "demo1" 7 0 10
 PART -1
 ALPH 256 1
 PART 0
@@ -32,7 +32,7 @@ PAT: BUTT 3 "demo1" 5 2 340 300 0 [1] 500 1
 PAT: FIXD 4 "demo1" 7 25 80 0 "blackontransparentchars"
 PART 4
 FRMT 0 0 0 0 2 0 2
-PTXT "**Welcome to the Demo of lifandi , an open source community game.*** 		 *******For more information see http://lifandi.ccdevnet.org .*****	    This demo is very simple demo , klick on 'ok' to get to the demoworld screen .***	            ."
+PTXT "**Welcome to the Demo of 'lifandi' , for openc2e.*** 		 *******For more information see http://lifandi.ccdevnet.org .*****	    This demo is very simple demo , klick on 'ok' to get to the demoworld screen .***	            ."
 SETV AVAR TARG 74 0
 MVTO 1400 100
 TICK 100
@@ -68,8 +68,9 @@ SETV VA00 256
 LOOP
 SETV VA01 VA00
 ALPH VA01 1
-WAIT 0
-SUBV VA00 1
+WAIT 1
+INST
+SUBV VA00 10
 UNTL VA00 LT 0
 
 ALPH VA00 0

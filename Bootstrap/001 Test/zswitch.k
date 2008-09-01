@@ -1,14 +1,15 @@
 /**
  
 
-    Script: swichtodemo
+    Script: swich_to_demo
     ___________________________________________________________________________
 
     Version 0.1
 
     Copyright (C) 2008 august0815
-
-   
+    IMPORTANT NOTE: newbutton has still a little bug 
+   >  switch.newbutton(2, "demo1", 3, 2, 80, 300,  0 ,"[1]", 2001, 1); is compiled to 
+   >  PAT: BUTT 2 "demo1" 3 2 80 300 0 "[1]" 2001 1  and not  ..[1] 2001.. remove per hand
   
  * -----------------------------------------------------------------------------
  * Agent  : F_VISIBLE1,G_GUI,S_SWITCH
@@ -17,7 +18,9 @@
  
  */
  ovar numeric fade[74];
-/**INST LOCK TICK 0*/
+/**
+INST LOCK TICK 0
+*/
 define pre()
 {  _caos { INST; LOCK; TICK 0;  };}
 /**
@@ -26,7 +29,7 @@ QUIT KILL OWNER
 define end()
 {  _caos { QUIT;KILL OWNR;  };}
 install {
-        agent switch = newcompound(F_VISIBLE1,G_GUI,S_SWITCH, "buttons", 7, 0, 10);
+        agent switch = newcompound(F_VISIBLE1,G_GUI,S_SWITCH, "demo1", 7, 0, 10);
         switch.changepart(-1);
         alpha(256,1);
         switch.changepart(0);
@@ -36,7 +39,7 @@ install {
         switch.newtextpart(4, "demo1", 7, 25, 80,  0, "blackontransparentchars");
         switch.changepart(4);
         switch.textformat(0, 0, 0, 0, 2, 0, 2);
-        string ausgabe="**Welcome to the Demo of lifandi , an open source community game.*** 		 *******For more information see http://lifandi.ccdevnet.org .*****	    This demo is very simple demo , klick on 'ok' to get to the demoworld screen .***	            ." ;
+        string ausgabe="**Welcome to the Demo of 'lifandi' , for openc2e.*** 		 *******For more information see http://lifandi.ccdevnet.org .*****	    This demo is very simple demo , klick on 'ok' to get to the demoworld screen .***	            ." ;
         switch.parttext=ausgabe;
         switch.fade=0;
         move(switch, 1400, 100);
@@ -54,8 +57,9 @@ script (F_VISIBLE1,G_GUI,S_SWITCH, 2000) {
     owner.changepart(-1);
     numeric lp=256;
     do {alpha(lp,1);
-        wait(0);
-        lp=lp-1;}until(lp<0);
+        wait(1);
+        _caos{inst;};
+        lp=lp-10;}until(lp<0);
     alpha(lp,0);
     owner.fade=1;
     }while (owner.fade==0);
