@@ -50,23 +50,23 @@ mmsc 625 445 ""
     rmsc 1053 373 ""
     setv game "mapeditortmp_1" va00
   setv va00 addr game "mapeditortmp" 52 325 440 440 463 468
-    rtyp va00 5
+    rtyp va00 1
     rmsc 188 454 ""
     setv game "mapeditortmp_2" va00
   setv va00 addr game "mapeditortmp" 747 996 295 296 459 462
-    rtyp va00 0
+    rtyp va00 2
     rmsc 871 378 ""
     setv game "mapeditortmp_3" va00
   setv va00 addr game "mapeditortmp" 325 747 440 459 468 484
-    rtyp va00 5
+    rtyp va00 3
     rmsc 536 462 ""
     setv game "mapeditortmp_4" va00
   setv va00 addr game "mapeditortmp" 509 747 297 295 448 459
-    rtyp va00 0
+    rtyp va00 4
     rmsc 628 378 ""
     setv game "mapeditortmp_5" va00
   setv va00 addr game "mapeditortmp" 747 996 459 462 484 482
-    rtyp va00 5
+    rtyp va00 0
     rmsc 871 470 ""
     setv game "mapeditortmp_6" va00
   setv va00 addr game "mapeditortmp" 325 509 297 297 440 448
@@ -78,43 +78,43 @@ mmsc 625 445 ""
     rmsc 164 368 ""
     setv game "mapeditortmp_8" va00
   setv va00 addr game "mapeditortmp" 1116 1242 455 457 478 485
-    rtyp va00 5
+    rtyp va00 0
     rmsc 1179 470 ""
     setv game "mapeditortmp_9" va00
   setv va00 addr game "mapeditortmp" 1111 1175 524 567 850 847
-    rtyp va00 3
+    rtyp va00 0
     rmsc 1143 685 ""
     setv game "mapeditortmp_10" va00
   setv va00 addr game "mapeditortmp" 996 1111 450 450 860 860
-    rtyp va00 3
+    rtyp va00 0
     rmsc 1053 655 ""
     setv game "mapeditortmp_11" va00
   setv va00 addr game "mapeditortmp" 876 996 515 510 860 860
-    rtyp va00 3
+    rtyp va00 0
     rmsc 936 687 ""
     setv game "mapeditortmp_12" va00
   setv va00 addr game "mapeditortmp" 708 876 515 515 862 860
-    rtyp va00 3
+    rtyp va00 0
     rmsc 792 687 ""
     setv game "mapeditortmp_13" va00
   setv va00 addr game "mapeditortmp" 522 708 510 515 848 862
-    rtyp va00 3
+    rtyp va00 0
     rmsc 615 686 ""
     setv game "mapeditortmp_14" va00
   setv va00 addr game "mapeditortmp" 364 522 505 510 848 848
-    rtyp va00 3
+    rtyp va00 0
     rmsc 443 676 ""
     setv game "mapeditortmp_15" va00
   setv va00 addr game "mapeditortmp" 230 364 500 505 852 848
-    rtyp va00 3
+    rtyp va00 0
     rmsc 297 674 ""
     setv game "mapeditortmp_16" va00
   setv va00 addr game "mapeditortmp" 102 230 487 500 857 852
-    rtyp va00 3
+    rtyp va00 0
     rmsc 166 669 ""
     setv game "mapeditortmp_17" va00
   setv va00 addr game "mapeditortmp" 70 102 503 487 829 857
-    rtyp va00 3
+    rtyp va00 0
     rmsc 86 680 ""
     setv game "mapeditortmp_18" va00
   setv va00 addr game "mapeditortmp" 3 325 3 3 296 297
@@ -135,19 +135,19 @@ mmsc 625 445 ""
 
     setv game "mapeditortmp_27" va00
   setv va00 addr game "mapeditortmp" 52 112 463 464 506 480
-    rtyp va00 2
+    rtyp va00 0
     rmsc 82 471 ""
     setv game "mapeditortmp_28" va00
   setv va00 addr game "mapeditortmp" 112 387 464 470 480 500
-    rtyp va00 2
+    rtyp va00 0
     rmsc 249 482 ""
     setv game "mapeditortmp_29" va00
   setv va00 addr game "mapeditortmp" 387 747 470 484 500 512
-    rtyp va00 2
+    rtyp va00 0
     rmsc 567 491 ""
     setv game "mapeditortmp_30" va00
   setv va00 addr game "mapeditortmp" 747 996 484 482 512 505
-    rtyp va00 2
+    rtyp va00 0
     rmsc 871 494 ""
     setv game "mapeditortmp_31" va00
 
@@ -576,4 +576,4 @@ rate 15 18 0.000000 0.000000 0.000000
 rate 15 19 0.000000 0.000000 0.000000
 
 
-cmra 500  500 0
+cmra 1600 300 0
