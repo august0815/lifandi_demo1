@@ -13,7 +13,7 @@ define numeric G_HAND = 1;
 define numeric G_DOOR = 2;
 define numeric G_SEED = 3;
 define numeric G_GOODPLANT = 4;
-
+define numeric G_WEATHER =19;
 // script
 //0
 define numeric S_POINTER = 0 ;
@@ -28,6 +28,12 @@ define numeric S_HEAT = 151;
 define numeric S_NUTRIENT = 152;
 define numeric S_FOO = 1000;
 define numeric S_SWITCH = 180;
+define numeric S_WEATHERMONITOR = 190;
+define numeric S_CLOUD = 191;
+define numeric S_LCLOUD=192;
+define numeric S_SUN=193;
+define numeric S_RAIN=194;
+define numeric S_HRAIN=195;
 //2
 
 define numeric S_BUBBLE_HANDLING = 3;
