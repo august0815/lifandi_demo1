@@ -16,6 +16,7 @@
  * Sprites: demo1
  * -----------------------------------------------------------------------------
  
+ *TO DO , Reformat the text Output in line 43 . august0815 03.09.08
  */
  ovar numeric fade[74];
 /**
