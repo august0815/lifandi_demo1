@@ -53,7 +53,7 @@ install {
  		numeric px= getRandom(50, 100);
         numeric py= getRandom(50, 100);
         move(weathermonitor, px,py);
-		weathermonitor.tick=800;
+		weathermonitor.tick=200;
 } 
 script ( F_INVISIBLE,G_SYSTEM,S_WEATHERMONITOR,9) {
 		agent w=owner;
@@ -120,22 +120,23 @@ script ( F_VISIBLE2,G_WEATHER,S_SUN,9) {numeric time1=getRandom(120,290);
     wait(time1);
      do {alpha(lp,1);
         wait(3);
-        lp=lp+10;}until(lp>250);
+        lp=lp+30;}until(lp>250);
         owner.kill;
 }
 script ( F_VISIBLE2,G_WEATHER,S_LCLOUD,9) {numeric time1=getRandom(120,290);
-	numeric lp=250;
+numeric lp;numeric drops;numeric px;numeric py; numeric plane;numeric lp1
+	 lp=250;
     do {alpha(lp,1);
         wait(3);
         lp=lp-10;}until(lp<0);
     lp=0;
-     numeric drops=getRandom(30,50);
+   drops=getRandom(30,50);
     //_caos{targ ownr;} 
     do{
-    numeric px=owner.centrex;
-    numeric py=owner.centrey; 
+    px=owner.centrex;
+    py=owner.centrey; 
     px=px+getRandom(-60,60);
-    numeric plane = getRandom(1, 600);
+    plane = getRandom(1, 600);
     _caos{inst;}
     agent lowrain=newsimple(F_VISIBLE2,G_WEATHER,S_RAIN, "rain", 2, 1, plane);
     lowrain.attributes = 194;
@@ -148,13 +149,9 @@ script ( F_VISIBLE2,G_WEATHER,S_LCLOUD,9) {numeric time1=getRandom(120,290);
 	wait(getRandom(4,6));
 	drops=drops-1;
 	}until(drops==0);
-	 wait(time1);
-    numeric lp1=0;
-     do {lp1=lp1+10;
-        alpha(lp1,1);
-        wait(3);
-        }until(lp1>240);
+	
         owner.kill;
+
 }
 script ( F_VISIBLE2,G_WEATHER,S_CLOUD,9) {numeric time1=getRandom(120,290);
 	numeric lp=250;
@@ -162,9 +159,9 @@ script ( F_VISIBLE2,G_WEATHER,S_CLOUD,9) {numeric time1=getRandom(120,290);
         wait(3);
         lp=lp-10;}until(lp<0);
     lp=0;
- 
+
       numeric drops=getRandom(30,50);
- 
+
     do{
     numeric px=owner.centrex;
     numeric py=owner.centrey; 
@@ -182,13 +179,9 @@ script ( F_VISIBLE2,G_WEATHER,S_CLOUD,9) {numeric time1=getRandom(120,290);
 	wait(getRandom(4,6));
 	drops=drops-1;
 	}until(drops==0);
-	 wait(time1);
-    numeric lp2=0;
-     do {lp2=lp2+10;
-    	alpha(lp2,1);
-        wait(3);
-        }until(lp2>240);
+
         owner.kill;
+
 }
 script (  F_VISIBLE2,G_WEATHER,S_RAIN,9){
  numeric fall=owner.isFalling;
