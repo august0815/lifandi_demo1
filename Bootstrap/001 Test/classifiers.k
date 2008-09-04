@@ -27,6 +27,8 @@ define numeric S_LIGHT = 150;
 define numeric S_HEAT = 151;
 define numeric S_NUTRIENT = 152;
 define numeric S_FOO = 1000;
+define numeric S_SHOOTER = 170;
+define numeric S_SHOOTERSEED = 171;
 define numeric S_SWITCH = 180;
 define numeric S_WEATHERMONITOR = 190;
 define numeric S_CLOUD = 191;
@@ -34,6 +36,7 @@ define numeric S_LCLOUD=192;
 define numeric S_SUN=193;
 define numeric S_RAIN=194;
 define numeric S_HRAIN=195;
+
 //2
 
 define numeric S_BUBBLE_HANDLING = 3;

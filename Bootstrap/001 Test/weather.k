@@ -23,7 +23,7 @@
  * -----------------------------------------------------------------------------
  
  *
- * funktion ALTR has to be implemented
+ * 
  *
  
  */
@@ -36,6 +36,14 @@ define centrey(agent a) returning numeric {
 			.inline let $return = POSY;
 		};
 	}
+}
+ /**
+POSY
+ */
+define rainCA(numeric ca,numeric val)  {
+
+	_caos {	ALPH ROOM TARG $ca(r) $val(r);}
+
 }
 install {
         agent weathermonitor;
@@ -179,7 +187,7 @@ script ( F_VISIBLE2,G_WEATHER,S_CLOUD,9) {numeric time1=getRandom(120,290);
 script (  F_VISIBLE2,G_WEATHER,S_RAIN,9){
  numeric fall=owner.isFalling;
   if (fall==0){
-  // When fuzzie implements ALTR in openc2e , thewn here ALTR 3 0.08!!
+  rainCA(3, 0.8);
   owner.kill;
   }
 }
@@ -187,7 +195,7 @@ script (  F_VISIBLE2,G_WEATHER,S_RAIN,9){
 script (  F_VISIBLE2,G_WEATHER,S_HRAIN,9){
   numeric fall=owner.isFalling;
   if (fall==0){
-  // When fuzzie implements ALTR in openc2e , thewn here ALTR 3 0.08!!
+  rainCA(3, 0.8);
   owner.kill;
   } 
 }
