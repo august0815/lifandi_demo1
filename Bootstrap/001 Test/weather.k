@@ -42,7 +42,7 @@ POSY
  */
 define rainCA(numeric ca,numeric val)  {
 
-	_caos {	ALPH ROOM TARG $ca(r) $val(r);}
+	_caos {	ALTR ROOM TARG $ca(r) $val(r);}
 
 }
 install {
@@ -59,8 +59,9 @@ script ( F_INVISIBLE,G_SYSTEM,S_WEATHERMONITOR,9) {
 		agent w=owner;
 		numeric how = getRandom(0, 15);	 
 		if (how<9) { numeric many = getRandom(3, 5);numeric plane = getRandom(800, 4000);
-					numeric px = getRandom(0, 700);numeric vel = getRandom(-6, 6)
+					numeric vel = getRandom(-6, 6)
 					do { many=many-1;
+						numeric px = getRandom(0, 700);
 						_caos{INST;}
 						agent sunnycloud=newsimple(F_VISIBLE2,G_WEATHER,S_SUN, "cloud", 3, 0, plane);
 						 alpha(250,1);
@@ -77,8 +78,9 @@ script ( F_INVISIBLE,G_SYSTEM,S_WEATHERMONITOR,9) {
 					}
 		else if (how >= 9 && how < 12) { 
 					 numeric many = getRandom(3, 5);numeric plane = getRandom(3000, 5000);
-					numeric px = getRandom(0, 700);numeric vel = getRandom(-6, 6)
+					;numeric vel = getRandom(-6, 6)
 					do { many=many-1;
+					numeric px = getRandom(0, 700)
 						_caos{INST;}
 						agent cloudlight=newsimple(F_VISIBLE2,G_WEATHER,S_LCLOUD, "cloud", 3, 1, plane);
 						 alpha(250,1);
@@ -93,9 +95,10 @@ script ( F_INVISIBLE,G_SYSTEM,S_WEATHERMONITOR,9) {
 					 }
 		else if (how >=12) {
 						 numeric many = getRandom(3, 5);numeric plane = getRandom(4000, 6000);
-					numeric px = getRandom(0, 700);numeric vel = getRandom(-6, 6)
+					numeric vel = getRandom(-6, 6)
 					do { many=many-1;
 						_caos{INST;}
+						numeric px = getRandom(0, 700);
 						agent cloudheavy=newsimple(F_VISIBLE2,G_WEATHER,S_CLOUD, "cloud", 3, 2, plane);
 						 alpha(250,1);
 						 cloudheavy.attributes = 194;
@@ -126,8 +129,7 @@ script ( F_VISIBLE2,G_WEATHER,S_LCLOUD,9) {numeric time1=getRandom(120,290);
         wait(3);
         lp=lp-10;}until(lp<0);
     lp=0;
-    wait(time1);
-    numeric drops=getRandom(30,50);
+     numeric drops=getRandom(30,50);
     //_caos{targ ownr;} 
     do{
     numeric px=owner.centrex;
@@ -146,10 +148,12 @@ script ( F_VISIBLE2,G_WEATHER,S_LCLOUD,9) {numeric time1=getRandom(120,290);
 	wait(getRandom(4,6));
 	drops=drops-1;
 	}until(drops==0);
-   
-     do {alpha(lp,1);
+	 wait(time1);
+    numeric lp1=0;
+     do {lp1=lp1+10;
+        alpha(lp1,1);
         wait(3);
-        lp=lp+10;}until(lp>250);
+        }until(lp1>240);
         owner.kill;
 }
 script ( F_VISIBLE2,G_WEATHER,S_CLOUD,9) {numeric time1=getRandom(120,290);
@@ -158,7 +162,7 @@ script ( F_VISIBLE2,G_WEATHER,S_CLOUD,9) {numeric time1=getRandom(120,290);
         wait(3);
         lp=lp-10;}until(lp<0);
     lp=0;
-    wait(time1);
+ 
       numeric drops=getRandom(30,50);
  
     do{
@@ -178,16 +182,18 @@ script ( F_VISIBLE2,G_WEATHER,S_CLOUD,9) {numeric time1=getRandom(120,290);
 	wait(getRandom(4,6));
 	drops=drops-1;
 	}until(drops==0);
-   
-     do {alpha(lp,1);
+	 wait(time1);
+    numeric lp2=0;
+     do {lp2=lp2+10;
+    	alpha(lp2,1);
         wait(3);
-        lp=lp+10;}until(lp>250);
+        }until(lp2>240);
         owner.kill;
 }
 script (  F_VISIBLE2,G_WEATHER,S_RAIN,9){
  numeric fall=owner.isFalling;
   if (fall==0){
-  rainCA(3, 0.8);
+  rainCA(3, 0.4);
   owner.kill;
   }
 }
