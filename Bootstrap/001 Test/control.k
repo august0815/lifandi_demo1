@@ -20,7 +20,15 @@
  ***********************************************************************
  * Light Emitters 
  **********************************************************************/
- 
+  /**
+ALTR val val val
+ */
+define altrROOM(numeric room, numeric ca,numeric val)  {
+
+	_caos {	ALTR $room(r) $ca(r) $val(r);
+}
+
+}
  // 'Sun'
 install {
         agent light;
@@ -68,19 +76,23 @@ script ( F_INVISIBLE,G_SYSTEM,S_LIGHT, 1000) {
 script ( F_INVISIBLE,G_SYSTEM,S_HEAT, 1000) {
 	 _caos {
     emit 2 _P1_ ;
+    
   }
 	}
 script ( F_INVISIBLE,G_SYSTEM,S_NUTRIENT, 1000) {
-	 _caos {
-    emit 3 _P1_ ;
-  }
+	altrROOM( 2,4,1);
+	altrROOM( 4,4,1);
+	altrROOM( 5,4,1);
+	altrROOM( 6,4,1);
+    _caos{Kill ownr;};
+    
 }
 
 install {
  //turn all emitters on
- enum (F_INVISIBLE,G_SYSTEM,S_LIGHT) {|light|light.simpMessage(1000,1,0);}
- enum (F_INVISIBLE,G_SYSTEM,S_HEAT) {|heat| heat.simpMessage(1000,0.95,0);}	
- enum (F_INVISIBLE,G_SYSTEM,S_NUTRIENT) {|nutrient| nutrient.simpMessage(1000,0.6, 0 );} 	
+ enum (F_INVISIBLE,G_SYSTEM,S_LIGHT) {|light|light. simpMessage(1000,1,0);}
+ enum (F_INVISIBLE,G_SYSTEM,S_HEAT) {|heat| heat. simpMessage(1000,0.95,0);}	
+ enum (F_INVISIBLE,G_SYSTEM,S_NUTRIENT) {|nutrient| nutrient. simpMessage(1000,1, 0 );} 	
 }	
 
 

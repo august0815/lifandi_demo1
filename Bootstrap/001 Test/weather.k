@@ -38,7 +38,7 @@ define centrey(agent a) returning numeric {
 	}
 }
  /**
-POSY
+ALTR ROOM TARG
  */
 define rainCA(numeric ca,numeric val)  {
 
