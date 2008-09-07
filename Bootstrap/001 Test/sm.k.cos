@@ -1,0 +1,74 @@
+ ***********************************************************************
+ *             sm.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: COMP 3 3 10 "machine" 3 0 5000
+ATTR 6
+TICK 1
+PAT: BUTT 1 "machine" 1 2 34 148 0 [1] 2001 1
+PART 1
+PAT: BUTT 2 "machine" 3 2 44 128 0 [1] 2002 1
+PART 2
+MVTO 110 660
+SCRP 3 3 10 2002
+NEW: SIMP 3 4 174 "Fruit" 9 0 5000
+ATTR 195
+ELAS 5
+BHVR 48
+SETV VA00 RAND 100 900
+SETV VA01 RAND 50 200
+MVTO VA00 VA01
+SETV AVAR TARG 54 0.1
+SETV AVAR TARG 58 0.3
+TICK 20
+SETV VA02 RAND 10 -10
+SETV VA03 RAND -3 -10
+VELO VA02 VA03
+ENDM
+
+SCRP 3 3 10 2001
+NEW: SIMP 3 4 171 "Seed" 16 3 5000
+ATTR 195
+ELAS 5
+BHVR 48
+MVTO 600 450
+SETV AVAR TARG 54 0.1
+SETV AVAR TARG 58 0.3
+TICK 20
+ANIM [ 3 4 5 6 7 8 9 10 11 12 255 ]
+SETV VA00 RAND 10 -10
+SETV VA01 RAND -3 -10
+VELO VA00 VA01
+ENDM
+
+SCRP 3 3 10 9
+ENDM
+
+RSCR
+ENUM 3 3 10
+KILL TARG
+
+NEXT
+SCRX 3 3 10 9
+SCRX 3 3 10 2001
+SCRX 3 3 10 2002
