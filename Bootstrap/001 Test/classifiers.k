@@ -9,11 +9,13 @@ define numeric F_CREATURE = 4 ;
 define numeric G_ZERO = 0 ;
 define numeric G_SYSTEM = 1 ;
 define numeric G_GUI = 2 ;
+define numeric G_MACHINERY = 3 ;
 define numeric G_HAND = 1;
 define numeric G_DOOR = 2;
 define numeric G_SEED = 3;
 define numeric G_GOODPLANT = 4;
 define numeric G_WEATHER =19;
+define numeric G_TOY =21;
 // script
 //0
 define numeric S_POINTER = 0 ;
@@ -29,6 +31,13 @@ define numeric S_NUTRIENT = 152;
 define numeric S_FOO = 1000;
 define numeric S_SHOOTER = 170;
 define numeric S_SHOOTERSEED = 171;
+define numeric S_TREE = 172;
+define numeric S_TREEFLOWER = 173;
+define numeric S_TREEFRUIT = 174;
+define numeric S_BUBBLEJET = 175;
+define numeric S_BUBBLE = 176;
+define numeric S_BALOON = 177;
+define numeric S_BALL = 178;
 define numeric S_SWITCH = 180;
 define numeric S_WEATHERMONITOR = 190;
 define numeric S_CLOUD = 191;
@@ -44,6 +53,7 @@ define numeric S_BUBBLE_HANDLING2 = 9;
 define numeric S_BUBBLE_HANDLING1 = 10;
 define numeric S_ZSWICHER = 1000;
 //3
+define numeric S_SIMPLEMACHINERY = 10;
 
 
 

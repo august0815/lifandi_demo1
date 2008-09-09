@@ -16,7 +16,6 @@
  * Sprites: demo1
  * -----------------------------------------------------------------------------
  
- *TO DO , Reformat the text Output in line 43 . august0815 03.09.08
  */
  ovar numeric fade[74];
 /**
@@ -40,7 +39,23 @@ install {
         switch.newtextpart(4, "demo1", 7, 25, 80,  0, "blackontransparentchars");
         switch.changepart(4);
         switch.textformat(0, 0, 0, 0, 2, 0, 2);
-        string ausgabe="**Welcome to the Demo of 'lifandi' , for openc2e.*** 		 *******For more information see http://lifandi.ccdevnet.org .*****	    This demo is very simple demo , klick on 'ok' to get to the demoworld screen .***	            ." ;
+        
+        switch.newtextpart(5, "demo1", 7, 25, 110,  0, "blackontransparentchars");
+        switch.changepart(5);
+        switch.textformat(0, 0, 0, 0, 2, 0, 2);
+        
+        switch.newtextpart(6, "demo1", 7, 25, 140,  0, "blackontransparentchars");
+        switch.changepart(6);
+        switch.textformat(0, 0, 0, 0, 2, 0, 2);
+        switch.changepart(4);
+        string ausgabe="*******Welcome to the Demo of 'lifandi' , for openc2e.*******";
+        switch.parttext=ausgabe;
+        switch.changepart(5);
+        ausgabe="***For more information see http://lifandi.ccdevnet.org .***";
+        switch.parttext=ausgabe;
+        switch.changepart(6);
+        switch.parttext=ausgabe;
+        ausgabe="This demo is very simple demo, klick on 'ok' to get to the demoworld " ;
         switch.parttext=ausgabe;
         switch.fade=0;
         move(switch, 1400, 100);

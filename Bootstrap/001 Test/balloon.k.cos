@@ -1,5 +1,5 @@
  ***********************************************************************
- *             zswitch.k.cos
+ *             baloon.k.cos
  ***********************************************************************
  *            
  *      Copyright 2008 august0815 <augustulus@freenet.de>
@@ -22,81 +22,107 @@
  *      This file was autocompiled with kaos written by Bryan Donlan   *
  ***********************************************************************
 
-NEW: COMP 2 2 180 "demo1" 7 0 10
-PART -1
-ALPH 256 1
-PART 0
-POSE 0
-PAT: BUTT 2 "demo1" 3 2 80 300 0 [1] 2001 1
-PAT: BUTT 3 "demo1" 5 2 340 300 0 [1] 500 1
-PAT: FIXD 4 "demo1" 7 25 80 0 "blackontransparentchars"
-PART 4
-FRMT 0 0 0 0 2 0 2
-PAT: FIXD 5 "demo1" 7 25 110 0 "blackontransparentchars"
-PART 5
-FRMT 0 0 0 0 2 0 2
-PAT: FIXD 6 "demo1" 7 25 140 0 "blackontransparentchars"
-PART 6
-FRMT 0 0 0 0 2 0 2
-PART 4
-PTXT "*******Welcome to the Demo of 'lifandi' , for openc2e.*******"
-PART 5
-PTXT "***For more information see http://lifandi.ccdevnet.org .***"
-PART 6
-PTXT "*******For more information see http://lifandi.ccdevnet.org .*******"
-PTXT "This demo is very simple demo, klick on 'ok' to get to the demoworld "
-SETV AVAR TARG 74 0
-MVTO 1400 100
-TICK 100
-MESG WRT+ TARG 2000 0 0 0
-TICK 40
-SCRP 2 2 180 2001
-CMRA 200 200 0
-ENDM
-
-SCRP 2 2 180 500
-
-LOOP
-ADDV VA00 32
-PART -1
-SETV VA01 VA00
-ALPH VA01 1
-WAIT 1
-UNTL VA00 GT 256
-
-WAIT 10
-QUIT
+SCRP 3 21 177 1000
+SETA VA00 OWNR
+TARG OWNR
+LOCK
+SETV VA01 POSE
+DOIF VA01 LT 5
+TARG OWNR
+POSE 5
+ELSE
+DOIF VA01 GT 5 && VA01 LT 10
+TARG OWNR
+POSE 10
+ELSE
+DOIF VA01 GT 10 && VA01 LT 16
+TARG OWNR
+POSE 16
+ELSE
+ENDI
+ENDI
+ENDI
+TARG OWNR
+ACCG 10
+WAIT 5
 KILL OWNR
 ENDM
 
-SCRP 2 2 180 2000
-INST
+SCRP 3 21 177 9
+SETA VA00 OWNR
+TARG OWNR
+SETV VA01 AVAR VA00 1
+ADDV VA01 1
+SETV AVAR OWNR 1 VA01
+DOIF AVAR OWNR 1 GT 5
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+SETV VA02 ACCG
+ADDV VA02 0.1
+ACCG VA02
 LOCK
-TICK 0
-LOOP
-LOCK
-PART -1
-SETV VA00 256
-LOOP
-SETV VA01 VA00
-ALPH VA01 1
-WAIT 1
+ENDM
+
+SCRP 3 21 177 4
+SETA VA00 OWNR
+TARG OWNR
 INST
-SUBV VA00 10
-UNTL VA00 LT 0
+SETV VA01 RAND -5 5
+SETV VA02 RAND -5 5
+VELO VA01 VA02
+SETV VA03 RAND 0 10
+DOIF VA03 EQ 0
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+ENDM
 
-ALPH VA00 0
-SETV AVAR OWNR 74 1
-SETA VA02 OWNR
-UNTL AVAR OWNR 74 NE 0
+SCRP 3 21 177 3
+SETA VA00 OWNR
+TARG OWNR
+INST
+SETV VA01 RAND -5 5
+SETV VA02 RAND -5 5
+VELO VA01 VA02
+SETV VA03 RAND 0 10
+DOIF VA03 EQ 0
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+ENDM
 
+SCRP 3 21 177 2
+SETA VA00 OWNR
+TARG OWNR
+INST
+SETV VA01 RAND -5 5
+SETV VA02 RAND -5 5
+VELO VA01 VA02
+SETV VA03 RAND 0 10
+DOIF VA03 EQ 0
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+ENDM
+
+SCRP 3 21 177 1
+SETA VA00 OWNR
+TARG OWNR
+INST
+SETV VA01 RAND -5 5
+SETV VA02 RAND -5 5
+VELO VA01 VA02
+SETV VA03 RAND 0 10
+DOIF VA03 EQ 0
+MESG WRIT OWNR 1000
+ELSE
+ENDI
 ENDM
 
 RSCR
-ENUM 2 2 180
+ENUM 3 21 177
 KILL TARG
 
 NEXT
-SCRX 2 2 180 2000
-SCRX 2 2 180 2001
-SCRX 2 2 180 500
+SCRX 3 21 177 9
