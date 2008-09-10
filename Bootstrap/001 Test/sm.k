@@ -72,7 +72,7 @@ script ( F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY, 2001) {
  									else 
  									{ owner.seed=0;owner.changepart(1);owner.pose=0;
  									  enum (F_VISIBLE2,G_GOODPLANT,S_SHOOTERSEED) {|p| p.kill();}
- 									  deletescript( F_VISIBLE2,G_GOODPLANT,S_SHOOTERSEED,9);
+ 									  
  									}
  									
 }	
@@ -96,7 +96,7 @@ script ( F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY, 2002) {
  									else 
  									{ owner.fruit=0;owner.changepart(2);owner.pose=0;
  									  enum (F_VISIBLE2,G_GOODPLANT,S_TREEFRUIT) {|p| p.kill();}
- 									  deletescript( F_VISIBLE2,G_GOODPLANT,S_TREEFRUIT,9);
+ 									 
  									}
 }
 
@@ -118,9 +118,7 @@ script ( F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY, 2003) {
  									else 
  									{ owner.bubble=0;owner.changepart(3);owner.pose=0;
  									  enum (F_VISIBLE2,G_TOY,S_BUBBLEJET) {|p| p.kill();}
- 									  deletescript( F_VISIBLE2,G_TOY,S_BUBBLEJET,1);
- 									  deletescript( F_VISIBLE2,G_TOY,S_BUBBLEJET,2);
- 									   deletescript( F_VISIBLE2,G_TOY,S_BUBBLEJET,9);
+ 									 
  									}
 }
 script ( F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY, 2004) {
@@ -192,7 +190,7 @@ script ( F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY, 2005) {
  									else 
  									{ owner.ball=0;owner.changepart(5);owner.pose=0;
  									  enum (F_VISIBLE2,G_TOY,S_BALL) {|p| p.kill();}
- 									  deletescript( F_VISIBLE2,G_TOY,S_BALL,9);
+ 									  
  									}
  									}
 
@@ -204,7 +202,11 @@ remove {
 	deletescript( F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY,2001);
 	deletescript( F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY,2002);
 	deletescript( F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY,2003);
-	
-
+	deletescript( F_VISIBLE2,G_TOY,S_BALL,9);
+ 	deletescript( F_VISIBLE2,G_TOY,S_BUBBLEJET,1);
+ 	deletescript( F_VISIBLE2,G_TOY,S_BUBBLEJET,2);
+ 	deletescript( F_VISIBLE2,G_TOY,S_BUBBLEJET,9);
+ 	deletescript( F_VISIBLE2,G_GOODPLANT,S_TREEFRUIT,9);
+ 	deletescript( F_VISIBLE2,G_GOODPLANT,S_SHOOTERSEED,9);
 	}
 
