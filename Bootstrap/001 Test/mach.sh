@@ -1,9 +1,11 @@
 #!/bin/bash
 TAB=classifiers.k
+PRE=predef.k
 TMP=tmp.k
 rm -f $1.cos
-
-cat $TAB >> $TMP
+rm -f $TMP
+cat $TAB > $TMP
+cat $PRE >> $TMP
 cat $1 >>$TMP
 
 kaos $TMP
@@ -11,5 +13,8 @@ echo " ***********************************************************************" 
 echo " *             $1.cos" >>$1.cos
 cat gnu.cos  >> $1.cos
 cat output.cos >> $1.cos
-rm -f $TMP
+
+ sed 's/\"\[/\[/g' $1.cos >$TMP.tmp
+ sed 's/\]\"/\]/g' $TMP.tmp >$1.cos
+
 rm -f output.cos|exit

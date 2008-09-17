@@ -22,36 +22,40 @@
  *      This file was autocompiled with kaos written by Bryan Donlan   *
  ***********************************************************************
 
-NEW: COMP 2 2 180 "demo1" 7 0 10
+NEW: COMP 2 2 180 "demo2" 3 0 7990
+ATTR 52
 PART -1
 ALPH 256 1
 PART 0
 POSE 0
-PAT: BUTT 2 "demo1" 3 2 80 300 0 [1] 2001 1
-PAT: BUTT 3 "demo1" 5 2 340 300 0 [1] 500 1
-PAT: FIXD 4 "demo1" 7 25 80 0 "blackontransparentchars"
+PAT: DULL 2 "demo2" 1 50 50 0
+PAT: FIXD 4 "demo2" 2 60 80 0 "blackontransparentchars"
 PART 4
 FRMT 0 0 0 0 2 0 2
-PAT: FIXD 5 "demo1" 7 25 110 0 "blackontransparentchars"
+PAT: FIXD 5 "demo2" 2 60 110 0 "blackontransparentchars"
 PART 5
 FRMT 0 0 0 0 2 0 2
-PAT: FIXD 6 "demo1" 7 25 140 0 "blackontransparentchars"
+PAT: FIXD 6 "demo2" 2 60 140 0 "blackontransparentchars"
 PART 6
+FRMT 0 0 0 0 2 0 2
+PAT: FIXD 7 "demo2" 2 60 230 0 "blackontransparentchars"
+PART 7
 FRMT 0 0 0 0 2 0 2
 PART 4
 PTXT "*******Welcome to the Demo of 'lifandi' , for openc2e.*******"
 PART 5
 PTXT "***For more information see http://lifandi.ccdevnet.org .***"
 PART 6
-PTXT "*******For more information see http://lifandi.ccdevnet.org .*******"
-PTXT "This demo is very simple demo, klick on 'ok' to get to the demoworld "
+PTXT "This demo is very simple demo, click to get to the demoworld "
+PART 7
+PTXT "Please click "
+CLAC 0
 SETV AVAR TARG 74 0
-MVTO 1400 100
-TICK 100
+FLTO 202 1
 MESG WRT+ TARG 2000 0 0 0
-TICK 40
-SCRP 2 2 180 2001
-CMRA 200 200 0
+MESG WRT+ TARG 500 0 0 0
+SCRP 2 2 180 1
+MESG WRT+ OWNR 500 0 0 0
 ENDM
 
 SCRP 2 2 180 500
@@ -65,31 +69,31 @@ WAIT 1
 UNTL VA00 GT 256
 
 WAIT 10
-QUIT
-KILL OWNR
+TARG OWNR
+FLTO -1000 -1000
 ENDM
 
 SCRP 2 2 180 2000
 INST
 LOCK
 TICK 0
-LOOP
+SETA VA00 OWNR
+DOIF AVAR OWNR 74 EQ 0
 LOCK
 PART -1
-SETV VA00 256
+SETV VA01 256
 LOOP
-SETV VA01 VA00
-ALPH VA01 1
+SETV VA02 VA01
+ALPH VA02 1
 WAIT 1
 INST
-SUBV VA00 10
-UNTL VA00 LT 0
+SUBV VA01 10
+UNTL VA01 LT 0
 
-ALPH VA00 0
+ALPH VA01 0
 SETV AVAR OWNR 74 1
-SETA VA02 OWNR
-UNTL AVAR OWNR 74 NE 0
-
+ELSE
+ENDI
 ENDM
 
 RSCR
@@ -97,6 +101,6 @@ ENUM 2 2 180
 KILL TARG
 
 NEXT
-SCRX 2 2 180 2000
+SCRX 2 2 180 1
 SCRX 2 2 180 2001
 SCRX 2 2 180 500

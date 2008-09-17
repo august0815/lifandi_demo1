@@ -14,7 +14,6 @@
  * Sprites: monitor
  * -----------------------------------------------------------------------------
  */
-
 install {
         agent simplemonitor;
       	simplemonitor = newcompound(F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR, "monitor", 8,4, 5000);
@@ -61,7 +60,7 @@ script ( F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR, 9) {
 	s.changepart(1);
 	room=getroomid(mouseX(),mouseY());
     ausgabe= addstring(ausgabe,NumToStr(room));
-    if (room>0) { ausgabe=addstring(ausgabe,"@");ausgabe=addstring(ausgabe,returnLocation(room));}
+    if (room>(-1)) { ausgabe=addstring(ausgabe,"@");ausgabe=addstring(ausgabe,returnLocation(room));}
     s.parttext=ausgabe;
     s.changepart(2);
     ausgabe="Type ";
@@ -97,7 +96,7 @@ script ( F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR, 9) {
      s.parttext=ausgabe;
      s.changepart(4);
      ausgabe="";
-     if (room>0) {ausgabe=NumToStr(caOfRoom(room,s.namevar(fo)));}
+     if (room>(-1)) {ausgabe=NumToStr(caOfRoom(room,s.namevar(fo)));}
      else {ausgabe="";}
     ausgabe=addstring(ausgabe," targ :  ");
     
@@ -119,6 +118,8 @@ script ( F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR, 9) {
     yy = pointer.y;
     ausgabe=addstring(ausgabe,NumToStr(yy));
     s.parttext=ausgabe;
+    
+   
 }
 script ( F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR, 76) {
 numeric ch;numeric ch2;string ch1;string fo;
@@ -137,7 +138,7 @@ ch2=s.namevar(fo);
  if (ch2<0) {ch2=0 ;}
  else if (ch2>9) {ch2=9;}
  setnamevar(fo,ch2);
- }
+  }
 remove {
      enum (F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR) {|p| p.kill();}
          

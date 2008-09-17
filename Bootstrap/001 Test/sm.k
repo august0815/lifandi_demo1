@@ -9,15 +9,14 @@
     Copyright (C) 2008 august0815
    * under GNU
       IMPORTANT NOTE: newbutton has still a little bug 
-   >  simplemachinery.newbutton(1, "machine", 1, 2, 34, 148,  0 ,"[1]", 2001, 1); is compiled to 
-   >  PAT: BUTT 1 "machine" 1 2 34 148 0 [1] 2001 1  and not  ..[1] 2001.. remove per hand
+   
   
  * -----------------------------------------------------------------------------
  * Agent  : F_VISIBLE2, G_MACHINERY, S_SIMPLEMACHINERY
  * Sprites: machine,seed,fruit,baloon,ball
  * -----------------------------------------------------------------------------
  * Click on the symbol to produce seed ,fruit, ball, baloon or bubblejet click again to remove
- * TO DO : Position finetuning, Sound ,(EGG?, Rycycle?,FOOD?)
+ * TO DO : Position finetuning, Sound ,(EGG?, Recycle?,FOOD?)
  */
 
  // Ovxx needed by seed (see shooter.k) 
