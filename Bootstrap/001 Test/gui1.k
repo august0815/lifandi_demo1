@@ -69,9 +69,9 @@
     	a.newbutton(20, "gui1", 32, 2, 202, 18,  0 ,"[]", 2020, 1);
     	a.changepart(a.activ2);
         a.pose=1;
-    	a.newbutton(21, "gui1", 34, 1, 232, 18,  0 ,"[]", 2021, 1);
-    	a.newbutton(22, "gui1", 36, 1, 262, 18,  0 ,"[]", 2022, 1);
-    	a.newbutton(23, "gui1", 38, 1, 292, 18,  0 ,"[]", 2023, 1);
+    	a.newbutton(21, "gui1", 34, 2, 232, 18,  0 ,"[]", 2021, 1);
+    	a.newbutton(22, "gui1", 36, 2, 262, 18,  0 ,"[]", 2022, 1);
+    	a.newbutton(23, "gui1", 38, 2, 292, 18,  0 ,"[]", 2023, 1);
     	numeric to=10;numeric yy=225;numeric pt=24;
         do{
         a.newtextpart(pt,"gui1", 31,50,yy,1,"blackontransparentchars");
@@ -149,23 +149,23 @@ script (F_INVISIBLE,G_GUI,S_GUI,2016) {agent a=owner;
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2020) {agent a=owner;
 		a.changepart(a.activ2);
-        a.pose=0;a.activ2=20; a.changepart(a.activ1);a.pose=1;
+        a.pose=0;a.activ2=20; a.changepart(a.activ2);a.pose=1;
         moveCamera(500,500,0);
 }
 
 script (F_INVISIBLE,G_GUI,S_GUI,2021) {agent a=owner;
 		a.changepart(a.activ2);
-        a.pose=0;a.activ2=21; a.changepart(a.activ1);a.pose=1;
+        a.pose=0;a.activ2=21; a.changepart(a.activ2);a.pose=1;
         moveCamera(1500,500,0);
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2022) {agent a=owner;
 		a.changepart(a.activ2);
-        a.pose=0;a.activ2=22; a.changepart(a.activ1);a.pose=1;
+        a.pose=0;a.activ2=22; a.changepart(a.activ2);a.pose=1;
         moveCamera(1500,500,0);
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2023) {agent a=owner;
 		a.changepart(a.activ2);
-        a.pose=0;a.activ2=23; a.changepart(a.activ1);a.pose=1;
+        a.pose=0;a.activ2=23; a.changepart(a.activ2);a.pose=1;
         moveCamera(1500,500,0);
 }
 

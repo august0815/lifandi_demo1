@@ -1,5 +1,5 @@
  ***********************************************************************
- *             menue.k.cos
+ *             gui1.k.cos
  ***********************************************************************
  *            
  *      Copyright 2008 august0815 <augustulus@freenet.de>
@@ -56,9 +56,9 @@ PAT: BUTT 18 "gui1" 23 1 201 20 0 [] 2100 1
 PAT: BUTT 20 "gui1" 32 2 202 18 0 [] 2020 1
 PART AVAR TARG 96
 POSE 1
-PAT: BUTT 21 "gui1" 34 1 232 18 0 [] 2021 1
-PAT: BUTT 22 "gui1" 36 1 262 18 0 [] 2022 1
-PAT: BUTT 23 "gui1" 38 1 292 18 0 [] 2023 1
+PAT: BUTT 21 "gui1" 34 2 232 18 0 [] 2021 1
+PAT: BUTT 22 "gui1" 36 2 262 18 0 [] 2022 1
+PAT: BUTT 23 "gui1" 38 2 292 18 0 [] 2023 1
 SETV VA01 10
 SETV VA02 225
 SETV VA03 24
@@ -98,7 +98,7 @@ TARG OWNR
 PART AVAR OWNR 96
 POSE 0
 SETV AVAR OWNR 96 23
-PART AVAR OWNR 97
+PART AVAR OWNR 96
 POSE 1
 CMRA 1500 500 0
 ENDM
@@ -109,7 +109,7 @@ TARG OWNR
 PART AVAR OWNR 96
 POSE 0
 SETV AVAR OWNR 96 22
-PART AVAR OWNR 97
+PART AVAR OWNR 96
 POSE 1
 CMRA 1500 500 0
 ENDM
@@ -120,7 +120,7 @@ TARG OWNR
 PART AVAR OWNR 96
 POSE 0
 SETV AVAR OWNR 96 21
-PART AVAR OWNR 97
+PART AVAR OWNR 96
 POSE 1
 CMRA 1500 500 0
 ENDM
@@ -131,7 +131,7 @@ TARG OWNR
 PART AVAR OWNR 96
 POSE 0
 SETV AVAR OWNR 96 20
-PART AVAR OWNR 97
+PART AVAR OWNR 96
 POSE 1
 CMRA 500 500 0
 ENDM
