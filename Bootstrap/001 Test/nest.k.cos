@@ -1,0 +1,96 @@
+ ***********************************************************************
+ *             nest.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: SIMP 2 17 20 "grubnest" 7 0 1000
+ATTR 192
+SETV AVAR TARG 1 0
+SETV AVAR TARG 0 1
+TICK 50
+MVTO 200 300
+SCRP 2 17 20 9
+SETA VA00 OWNR
+TARG OWNR
+SETV VA01 AVAR VA00 1
+ADDV VA01 AVAR OWNR 0
+SETV AVAR OWNR 1 VA01
+SETV VA02 POSL
+ADDV VA02 5
+SETV VA03 POST
+ADDV VA03 5
+DOIF AVAR OWNR 1 LT 0
+SETV AVAR OWNR 1 0
+SETV AVAR OWNR 0 1
+WAIT 1000
+ELSE
+ENDI
+DOIF AVAR OWNR 1 GT 7
+SETV AVAR OWNR 1 7
+SETV AVAR OWNR 0 -1
+ELSE
+ENDI
+POSE AVAR OWNR 1
+SETV VA04 AVAR VA00 1
+DIVV VA04 2
+SUBV VA04 2
+SETV VA05 VA04
+MULV VA05 2
+DOIF VA04 LT 0
+SETV VA04 0
+ELSE
+ENDI
+DOIF VA05 LT 0
+SETV VA05 0
+ELSE
+ENDI
+SETV VA06 RAND VA04 VA05
+LOOP
+SUBV VA06 1
+DOIF AVAR OWNR 1 GT 2
+NEW: SIMP 2 11 21 "grub" 3 0 500
+ATTR 195
+BHVR 48
+SETV AVAR TARG 1 0
+ELAS 0.1
+ACCG 1
+PERM 100
+SETV AVAR TARG 30 0
+SETV AVAR TARG 0 0
+FRAT 2
+TICK 1
+SETV AVAR TARG 40 0
+SETV AVAR TARG 41 0
+SETV AVAR TARG 42 0
+MVTO VA02 VA03
+ELSE
+ENDI
+UNTL VA06 LT 0
+
+ENDM
+
+RSCR
+ENUM 2 17 20
+KILL TARG
+
+NEXT
+SCRX 2 17 20 9

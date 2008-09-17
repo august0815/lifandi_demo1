@@ -225,8 +225,7 @@ define newpart(agent a, numeric partno, string spritefile, numeric firstframe,nu
 		};
 	}
 }
-/*
- * Function: roomType
+/**
  * ROOM
  */
 define roomOfTarg(agent a) returning numeric
@@ -235,8 +234,8 @@ define roomOfTarg(agent a) returning numeric
      .inline let $return = ROOM $a(r);
     };
   };
-  /**
-FRAT
+/**
+* FRAT
 */
 
 define framerate(numeric rate)
@@ -244,4 +243,43 @@ define framerate(numeric rate)
   _caos {
     FRAT $rate(r);
   };
+}
+/** 
+ * OBST RGHT
+ */
+define wallright() returning numeric
+{
+  _caos {
+     .inline let $return = OBST RGHT;
+    };
+  };
+/**
+ * OBST RGHT
+ */
+define wallleft() returning numeric
+{
+  _caos {
+     .inline let $return = OBST LEFT;
+    };
+  };
+/**
+RNGE
+ */
+define  range(numeric see) 
+{
+	_caos {	RNGE  $see(r);}
+}
+/**
+DBG: OUTV
+ */
+define  printn(numeric see) 
+{
+	_caos {	DBG: OUTV $see(r);}
+}
+/**
+DBG: OUTS
+ */
+define  prints(string see) 
+{
+	_caos {	DBG: OUTS $see(r);}
 }

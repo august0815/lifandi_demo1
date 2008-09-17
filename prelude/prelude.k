@@ -258,7 +258,7 @@ define changepart(agent a, numeric partno) {
 	}
 }
 /**
-PAT: FIX
+PAT: FIXD
  */
 define newtextpart(agent a, numeric partno, string spritefile, numeric firstframe, numeric x, numeric y, numeric plane, string fontspritefile) {
 	_caos {
