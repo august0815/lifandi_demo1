@@ -18,7 +18,7 @@ install {
         agent simplemonitor;
       	simplemonitor = newcompound(F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR, "monitor", 8,4, 5000);
       	simplemonitor.attributes = 292;
-        simplemonitor.floatat(30, 860);
+        simplemonitor.floatat(210, 860);
         simplemonitor.tick = 1;
         // ALPH not yet ready 
         simplemonitor.newtextinputpart(1, "monitor", 6, 200, 0, 0, 0, "blackontransparentchars");
@@ -139,11 +139,16 @@ ch2=s.namevar(fo);
  else if (ch2>9) {ch2=9;}
  setnamevar(fo,ch2);
   }
+  script ( F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR, 2000) {agent a=owner;
+  if(param1n==1){a.floatat(210, 860);a.tick=2;prints("AN");}
+  if(param1n==0){a.floatat(-1000, -1000);a.tick=0;prints("AUS");}
+  }
 remove {
      enum (F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR) {|p| p.kill();}
          
 	// Zap the scripts.
 	deletescript( F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR,9);
 	deletescript( F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR,76);
+	deletescript( F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR,2000);
 }
 
