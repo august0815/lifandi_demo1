@@ -45,38 +45,9 @@ define read(string a,numeric b) returning string
      .inline let $return =READ $a(r) $b(r);
     };
   };
-  /*
- * GAME , sets the GAME variable
- */
-define  gamevarn( string s,numeric namev)
-{
-  _caos {
-          SETV GAME $s(r) $namev(r);
-      };
-}
-  /*
- * GAME , gets the GAME variable
- */
-define gamevarnget( agent a,string s) returning numeric
-{
-  _caos {
-    .targ < $a {
-      .inline let $return = game $s(r);
-    };
-  };
-}
-/**
-RTAR
- */
-define roagent(string a) returning agent {
-	_caos {
-		.targ > $return {
-			RTAR $a(r);
-		};
-	}
-}
+
  install {
-         gamevarn("sm",0);     
+            
         agent a = newcompound(F_INVISIBLE,G_GUI,S_GUI, "gui1", 46, 0, 7999);
         a.activ=10;a.activ1=2;a.activ2=20;a.sm=0;
         //switch.changepart(-1);

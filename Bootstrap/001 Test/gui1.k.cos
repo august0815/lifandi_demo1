@@ -22,7 +22,6 @@
  *      This file was autocompiled with kaos written by Bryan Donlan   *
  ***********************************************************************
 
-SETV GAME "sm" 0
 NEW: COMP 1 2 5 "gui1" 46 0 7999
 SETA VA00 TARG
 SETV AVAR TARG 98 10
