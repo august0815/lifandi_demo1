@@ -21,13 +21,13 @@
  *			2002>Quit
  * 			2003>
  *			2004>
- *          2006-2025 Buttony
+ *          2006-2025 Buttons
  */
  ovar numeric hidden[99];//true=1 false =0
  ovar numeric activ[98];//part nr of activ element (inventory tool kit)
  ovar numeric activ1[97];//part nr of activ element (1-8)
  ovar numeric activ2[96];//part nr of signpost
- ovar numeric sm[95];//simplemonitor2 on,  off
+
  /*
  * MESG WRIT 
  */
@@ -49,7 +49,7 @@ define read(string a,numeric b) returning string
  install {
             
         agent a = newcompound(F_INVISIBLE,G_GUI,S_GUI, "gui1", 46, 0, 7999);
-        a.activ=10;a.activ1=2;a.activ2=20;a.sm=0;
+        a.activ=10;a.activ1=2;a.activ2=20;
         //switch.changepart(-1);
         //alpha(256,1);
         a.attributes = A_CAMERASHY|A_FLOATABLE|A_INVISIBLE;
@@ -97,35 +97,23 @@ define read(string a,numeric b) returning string
         a.textformat( 6, 6, 6, 6, 1, 1, 0);
         a.newbutton(25, "gui1",42 , 2,56,212,  0 ,"[]", 2024, 1);
     	a.newbutton(26, "gui1", 44, 2, 107, 212,  0 ,"[]", 2025, 1);
-    	/*
-    	numeric to=10;numeric yy=225;numeric pt=24;
-        do{
-        a.newtextpart(pt,"gui1", 31,50,yy,1,"blackontransparentchars");
-        a.changepart(pt);
-        a.textformat( 6, 6, 6, 6, 1, 1, 0);
-        string ausgabe="TEST " ;
-        a.parttext=ausgabe;
-        to=to-1;yy=yy+30;pt=pt+1;
-        }until (to==0);
-        //Buttons over test
-         to=10; yy=225; pt=34;
-        do{
-        a.newbutton(pt,"gui1", 31,1,50,yy,0,"[]",2010+pt,0);
-        to=to-1;yy=yy+30;pt=pt+1;
-        }until (to==0); */
-        a.hidden=0;
-        selfMessage(2009);
-        selfMessage(2020);
-    	selfMessage(2006);
+    	a.hidden=0;
+    	
         selfMessage(1999);
+       
+   
 }
-script (F_INVISIBLE,G_GUI,S_GUI,1999) {agent a=owner;numeric lop=0;string tag;string enumm;string stat; string desc;
+script (F_INVISIBLE,G_GUI,S_GUI,1999) {agent a=owner;numeric lop=0;string tag;string stat; string desc;
+prints("START");printn(lop);
  do {tag=read("inv",lop); stat=read(tag,3);
- setnamestring(tag,stat);  lop=lop+1;}until (lop==8);lop=0;
+ setnamestring(tag,stat);lop=lop+1;}until (lop==8);lop=0;
  do {tag=read("kit",lop); stat=read(tag,3);
  setnamestring(tag,stat);lop=lop+1;}until (lop==8);lop=0;
  do {tag=read("tool",lop);stat=read(tag,3);
  setnamestring(tag,stat);lop=lop+1;}until (lop==8)
+		selfMessage(2009);
+        selfMessage(2020);
+    	selfMessage(2006);
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2000) {agent a=owner;
  if (a.hidden==0) {velocity(a,(-20),0);wait(10);velocity(a,(0),0);}
