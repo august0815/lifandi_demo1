@@ -27,7 +27,7 @@ define numeric S_POINTER = 0 ;
 //1
 define numeric S_SIMPLEMONITOR =10 ;
 define numeric S_GUI =5 ;
-define numeric S_DUMMY = 254;
+
 define numeric S_BACKTOASTART = 100;
 define numeric S_MONITORBUTTON = 110;
 define numeric S_INJECTBUTTON = 120;
@@ -51,6 +51,8 @@ define numeric S_LCLOUD=192;
 define numeric S_SUN=193;
 define numeric S_RAIN=194;
 define numeric S_HRAIN=195;
+define numeric S_TEST1 = 253;
+define numeric S_DUMMY = 254;
 define numeric S_FOO = 1000;
 //2
 define numeric S_NEST = 20;

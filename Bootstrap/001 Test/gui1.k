@@ -48,7 +48,7 @@ define read(string a,numeric b) returning string
 
  install {
             
-        agent a = newcompound(F_INVISIBLE,G_GUI,S_GUI, "gui1", 46, 0, 7999);
+        agent a = newcompound(F_INVISIBLE,G_GUI,S_GUI, "gui1", 79, 0, 7999);
         a.activ=10;a.activ1=2;a.activ2=20;
         //switch.changepart(-1);
         //alpha(256,1);
@@ -98,13 +98,12 @@ define read(string a,numeric b) returning string
         a.newbutton(25, "gui1",42 , 2,56,212,  0 ,"[]", 2024, 1);
     	a.newbutton(26, "gui1", 44, 2, 107, 212,  0 ,"[]", 2025, 1);
     	a.hidden=0;
-    	
-        selfMessage(1999);
+    	a.base0=0;a.base1=46;a.base2=62;
+    	selfMessage(1999);
        
    
 }
 script (F_INVISIBLE,G_GUI,S_GUI,1999) {agent a=owner;numeric lop=0;string tag;string stat; string desc;
-prints("START");printn(lop);
  do {tag=read("inv",lop); stat=read(tag,3);
  setnamestring(tag,stat);lop=lop+1;}until (lop==8);lop=0;
  do {tag=read("kit",lop); stat=read(tag,3);
@@ -130,34 +129,80 @@ script (F_INVISIBLE,G_GUI,S_GUI,2003) {loadWorld("test");}
 script (F_INVISIBLE,G_GUI,S_GUI,2004) {createWorld("test");}
 script (F_INVISIBLE,G_GUI,S_GUI,2005) {}
 
-script (F_INVISIBLE,G_GUI,S_GUI,2006) {agent inventory=owner;
-		 inventory.changepart(inventory.activ);
+script (F_INVISIBLE,G_GUI,S_GUI,2006) {agent inventory=owner;//inventory.baseIndex=0;printn(inventory.base4);
+		 inventory.changepart(inventory.activ);inventory.baseIndex=0;
          inventory.pose=0;inventory.activ=10; inventory.changepart(inventory.activ);inventory.pose=1;
-         selfMessage(2009);
-         
-        
-         
+         inventory.base4=inventory.base0;
+        inventory.changepart(2); inventory.baseIndex=inventory.base4;
+        inventory.pose=1; inventory.activ1=2;
+        inventory.changepart(3); inventory.baseIndex=inventory.base4;
+        inventory.pose=0;
+        inventory.changepart(4); inventory.baseIndex=inventory.base4;
+        inventory.pose=0;
+        inventory.changepart(5); inventory.baseIndex=inventory.base4;
+        inventory.pose=0;
+        inventory.changepart(6); inventory.baseIndex=inventory.base4;
+        inventory.pose=0;
+        inventory.changepart(7); inventory.baseIndex=inventory.base4;
+        inventory.pose=0;
+        inventory.changepart(8); inventory.baseIndex=inventory.base4;
+        inventory.pose=0;
+        inventory.changepart(9); inventory.baseIndex=inventory.base4;
+        inventory.pose=0;
 }
-script (F_INVISIBLE,G_GUI,S_GUI,2007) {agent a=owner;
-		a.changepart(a.activ);
+script (F_INVISIBLE,G_GUI,S_GUI,2007) {agent a=owner;//a.baseIndex=0;printn(a.base4);
+		a.changepart(a.activ);a.baseIndex=0;
         a.pose=0;a.activ=11; a.changepart(a.activ);a.pose=1;
-        selfMessage(2009);
+        a.base4=a.base1;
+        a.changepart(2); a.baseIndex=a.base4;
+        a.pose=1;a.activ1=2;
+        a.changepart(3); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(4); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(5); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(6); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(7); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(8); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(9); a.baseIndex=a.base4;
+        a.pose=0;
 		
 }
-script (F_INVISIBLE,G_GUI,S_GUI,2008) {agent a=owner;
-		a.changepart(a.activ);
+script (F_INVISIBLE,G_GUI,S_GUI,2008) {agent a=owner;//a.baseIndex=0;;printn(a.base4);
+		a.changepart(a.activ);a.baseIndex=0;
         a.pose=0;a.activ=12; a.changepart(a.activ);a.pose=1;
-        selfMessage(2009);
-       
+       	a.base4=a.base2;
+        a.changepart(2); a.baseIndex=a.base4;
+        a.pose=1;a.activ1=2;
+        a.changepart(3); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(4); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(5); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(6); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(7); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(8); a.baseIndex=a.base4;
+        a.pose=0;
+        a.changepart(9); a.baseIndex=a.base4;
+        a.pose=0;
+        
 }
 
 
 script (F_INVISIBLE,G_GUI,S_GUI,2009) {agent a=owner;string ausgabe;string tag;string enumm;string stat; string desc;
-		a.changepart(a.activ1);
-        a.pose=0;a.activ1=2; a.changepart(a.activ1);a.pose=1;
+		a.changepart(a.activ1); a.baseIndex=a.base4;
+        a.pose=0;a.activ1=2; a.changepart(a.activ1);a.baseIndex=a.base4;a.pose=1;
         if (a.activ==10) {ausgabe=read("inv",0);}
         if (a.activ==11) {ausgabe=read("kit",0);}
         if (a.activ==12) {ausgabe=read("tool",0);	}
+        a.baseIndex=a.base0;
         tag=ausgabe;desc=read(tag,4);
         ausgabe=addstring(ausgabe,desc);
         a.changepart(24);
@@ -167,12 +212,12 @@ script (F_INVISIBLE,G_GUI,S_GUI,2009) {agent a=owner;string ausgabe;string tag;s
        	else {a.changepart(25);a.pose=0;a.changepart(26);a.pose=1;}
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2010) {agent a=owner;string ausgabe;string tag;string enumm;string stat; string desc;
-
-		a.changepart(a.activ1);
-        a.pose=0;a.activ1=3; a.changepart(a.activ1);a.pose=1;
+		a.changepart(a.activ1); a.baseIndex=a.base4;
+        a.pose=0;a.activ1=3; a.changepart(a.activ1);a.baseIndex=a.base4;a.pose=1;
         if (a.activ==10) {ausgabe=read("inv",1);}
         if (a.activ==11) {ausgabe=read("kit",1);}
         if (a.activ==12) {ausgabe=read("tool",1);}
+         a.baseIndex=a.base0;
         tag=ausgabe; desc=read(tag,4);
         ausgabe=addstring(ausgabe,desc);
 		a.changepart(24);
@@ -183,11 +228,12 @@ script (F_INVISIBLE,G_GUI,S_GUI,2010) {agent a=owner;string ausgabe;string tag;s
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2011) {agent a=owner;string ausgabe;string tag;string enumm;string stat; string desc;
 
-		a.changepart(a.activ1);
-        a.pose=0;a.activ1=4; a.changepart(a.activ1);a.pose=1;
+		a.changepart(a.activ1); a.baseIndex=a.base4;
+        a.pose=0;a.activ1=4; a.changepart(a.activ1);a.baseIndex=a.base4;a.pose=1;
          if (a.activ==10) {ausgabe=read("inv",2);}
         if (a.activ==11) {ausgabe=read("kit",2);}
         if (a.activ==12) {ausgabe=read("tool",2);}
+         a.baseIndex=a.base0;
         tag=ausgabe; ;desc=read(tag,4);
         ausgabe=addstring(ausgabe,desc);
         a.changepart(24);
@@ -198,11 +244,12 @@ script (F_INVISIBLE,G_GUI,S_GUI,2011) {agent a=owner;string ausgabe;string tag;s
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2012) {agent a=owner;string ausgabe;string tag;string enumm;string stat; string desc;
 
-		a.changepart(a.activ1);
-        a.pose=0;a.activ1=5; a.changepart(a.activ1);a.pose=1;
+		a.changepart(a.activ1); a.baseIndex=a.base4;
+        a.pose=0;a.activ1=5; a.changepart(a.activ1);a.baseIndex=a.base4;a.pose=1;
          if (a.activ==10) {ausgabe=read("inv",3);}
         if (a.activ==11) {ausgabe=read("kit",3);}
         if (a.activ==12) {ausgabe=read("tool",3);}
+         a.baseIndex=a.base0;
         tag=ausgabe; desc=read(tag,4);
         ausgabe=addstring(ausgabe,desc);
         a.changepart(24);
@@ -213,11 +260,12 @@ script (F_INVISIBLE,G_GUI,S_GUI,2012) {agent a=owner;string ausgabe;string tag;s
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2013) {agent a=owner;string ausgabe;string tag;string enumm;string stat; string desc;
 
-		a.changepart(a.activ1);
-        a.pose=0;a.activ1=6; a.changepart(a.activ1);a.pose=1;
+		a.changepart(a.activ1); a.baseIndex=a.base4;
+        a.pose=0;a.activ1=6; a.changepart(a.activ1);a.baseIndex=a.base4;a.pose=1;
          if (a.activ==10) {ausgabe=read("inv",4);}
         if (a.activ==11) {ausgabe=read("kit",4);}
         if (a.activ==12) {ausgabe=read("tool",4);}
+         a.baseIndex=a.base0;
         tag=ausgabe; desc=read(tag,4);
         ausgabe=addstring(ausgabe,desc);
         a.changepart(24);
@@ -228,11 +276,12 @@ script (F_INVISIBLE,G_GUI,S_GUI,2013) {agent a=owner;string ausgabe;string tag;s
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2014) {agent a=owner;string ausgabe;string tag;string enumm;string stat; string desc;
 
-		a.changepart(a.activ1);
-        a.pose=0;a.activ1=7; a.changepart(a.activ1);a.pose=1;
+		a.changepart(a.activ1); a.baseIndex=a.base4;
+        a.pose=0;a.activ1=7; a.changepart(a.activ1);a.baseIndex=a.base4;a.pose=1;
          if (a.activ==10) {ausgabe=read("inv",5);}
         if (a.activ==11) {ausgabe=read("kit",5);}
         if (a.activ==12) {ausgabe=read("tool",5);}
+         a.baseIndex=a.base0;
         tag=ausgabe; ;desc=read(tag,4);
         ausgabe=addstring(ausgabe,desc);
         a.changepart(24);
@@ -243,11 +292,12 @@ script (F_INVISIBLE,G_GUI,S_GUI,2014) {agent a=owner;string ausgabe;string tag;s
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2015) {agent a=owner;string ausgabe;string tag;string enumm;string stat; string desc;
 
-		a.changepart(a.activ1);
-        a.pose=0;a.activ1=8; a.changepart(a.activ1);a.pose=1;
+		a.changepart(a.activ1); a.baseIndex=a.base4;
+        a.pose=0;a.activ1=8; a.changepart(a.activ1);a.baseIndex=a.base4;a.pose=1;
          if (a.activ==10) {ausgabe=read("inv",6);}
         if (a.activ==11) {ausgabe=read("kit",6);}
         if (a.activ==12) {ausgabe=read("tool",6);}
+         a.baseIndex=a.base0;
         tag=ausgabe;desc=read(tag,4);
         ausgabe=addstring(ausgabe,desc);
         a.changepart(24);
@@ -258,11 +308,12 @@ script (F_INVISIBLE,G_GUI,S_GUI,2015) {agent a=owner;string ausgabe;string tag;s
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2016) {agent a=owner;string ausgabe;string tag;string enumm;string stat; string desc;
 
-		a.changepart(a.activ1);
-        a.pose=0;a.activ1=9; a.changepart(a.activ1);a.pose=1;
+		a.changepart(a.activ1); a.baseIndex=a.base4;
+        a.pose=0;a.activ1=9; a.changepart(a.activ1);a.baseIndex=a.base4;a.pose=1;
          if (a.activ==10) {ausgabe=read("inv",7);}
         if (a.activ==11) {ausgabe=read("kit",7);}
         if (a.activ==12) {ausgabe=read("tool",7);}
+         a.baseIndex=a.base0;
         tag=ausgabe; desc=read(tag,4);
         ausgabe=addstring(ausgabe,desc);
         a.changepart(24);
