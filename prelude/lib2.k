@@ -128,7 +128,7 @@ define simpMessage(agent a, numeric msgno, numeric p1, numeric p2) {
   };
 }
 /*
- * Function: namevar
+ * Function: setnamevar
  * NAME , sets the NAME variable
  */
 define  setnamevar( string s,numeric namev)
@@ -137,11 +137,31 @@ define  setnamevar( string s,numeric namev)
           SETV NAME $s(r) $namev(r);
       };
 }
+/**
+ * NAME , sets the NAME variable string
+ */
+define  setnamestring( string s,string namev)
+{
+  _caos {
+          SETS NAME $s(r) $namev(r);
+      };
+}
 /*
  * Function: namevar
  * NAME , gets the NAME variable
  */
 define namevar( agent a,string s) returning numeric
+{
+  _caos {
+    .targ < $a {
+      .inline let $return = name $s(r);
+    };
+  };
+}/*
+ * Function: namevar
+ * NAME , gets the NAME variable string 
+ */
+define namestring( agent a,string s) returning string
 {
   _caos {
     .targ < $a {
