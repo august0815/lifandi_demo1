@@ -149,6 +149,7 @@ script (F_INVISIBLE,G_GUI,S_GUI,2006) {agent inventory=owner;//inventory.baseInd
         inventory.pose=0;
         inventory.changepart(9); inventory.baseIndex=inventory.base4;
         inventory.pose=0;
+        selfMessage(2009);
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2007) {agent a=owner;//a.baseIndex=0;printn(a.base4);
 		a.changepart(a.activ);a.baseIndex=0;
@@ -170,7 +171,7 @@ script (F_INVISIBLE,G_GUI,S_GUI,2007) {agent a=owner;//a.baseIndex=0;printn(a.ba
         a.pose=0;
         a.changepart(9); a.baseIndex=a.base4;
         a.pose=0;
-		
+		selfMessage(2009);
 }
 script (F_INVISIBLE,G_GUI,S_GUI,2008) {agent a=owner;//a.baseIndex=0;;printn(a.base4);
 		a.changepart(a.activ);a.baseIndex=0;
@@ -192,7 +193,7 @@ script (F_INVISIBLE,G_GUI,S_GUI,2008) {agent a=owner;//a.baseIndex=0;;printn(a.b
         a.pose=0;
         a.changepart(9); a.baseIndex=a.base4;
         a.pose=0;
-        
+        selfMessage(2009);
 }
 
 
