@@ -60,6 +60,7 @@ define changeCaOfROOM( numeric ca,numeric val)  {
 	_caos {	ALTR ROOM TARG $ca(r) $val(r);}
 }
 
+
  install {
         agent shooter;
       	shooter = newsimple(F_VISIBLE2,G_GOODPLANT,S_SHOOTER, "shooter", 9,0, 5000);
@@ -96,7 +97,7 @@ define changeCaOfROOM( numeric ca,numeric val)  {
  									s.pose=pos;nutrient=nutrient-0.1;water=water-0.1;
  									changeCaOfROOM(4,nutrient);
  									changeCaOfROOM(3,water);
- 									print(pos);
+ 									
  									}
  							
  						if (pos==8) {
@@ -128,7 +129,7 @@ define changeCaOfROOM( numeric ca,numeric val)  {
  
  script ( F_VISIBLE2,G_GOODPLANT,S_SHOOTERSEED, 9) {
  agent seed=owner; numeric light;numeric heat;numeric water;numeric nutrient;
-
+ numeric max=seed.gamevarn("shooter_max");numeric meng=total(F_VISIBLE2,G_GOODPLANT,S_SHOOTER);
  light=caOfRoom(roomOfTarg(seed),1);
  heat=caOfRoom(roomOfTarg(seed),2);
  water=caOfRoom(roomOfTarg(seed),3);
@@ -141,8 +142,8 @@ define changeCaOfROOM( numeric ca,numeric val)  {
  						
  						numeric st=seed.stats;										
  							
- 						if (st==20) {
- 						 numeric px=seed.x-5;numeric py=seed.y-60;
+ 						if (st==20) { if (meng>max){seed.kill;}
+ 						 			numeric px=seed.x-5;numeric py=seed.y-60;
  									agent s;
       								s = newsimple(F_VISIBLE2,G_GOODPLANT,S_SHOOTER, "shooter", 9,0, 5000);
       								s.attributes = 192;

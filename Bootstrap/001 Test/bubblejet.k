@@ -1,7 +1,7 @@
 /**
 
 
-    Script: simplebubletoy
+    Script: simplebubbletoy
     ___________________________________________________________________________
 
     Version 0.1
@@ -43,10 +43,10 @@ script ( F_VISIBLE2,G_TOY,S_BUBBLEJET, 9){
 	bubble.anim(1,2,3,4,5);
 	_caos{over;};
 	agent bubble1;
-   bubble1= newsimple(F_VISIBLE2,G_TOY,S_BUBBLE, "Bubble", 6,0, 5000);
+   bubble1= newsimple(F_VISIBLE2,G_TOY,S_BUBBLE, "bubble", 6,0, 5000);
       								bubble1.attributes = 192;
       								bubble1.elasticity = 5;	
- 									bubble1.behaviour = 48;
+ 									//bubble1.behaviour = 48;
  									bubble1.acceleration=(-0.3);
  									bubble1.aerodynamics=2;
  									move(bubble1,px,py);

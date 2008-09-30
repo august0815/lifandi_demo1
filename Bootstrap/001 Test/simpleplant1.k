@@ -32,7 +32,7 @@ install { numeric plants=5;
         agent simpleplant;
       	simpleplant = newsimple ( F_VISIBLE1, G_GOODPLANT, S_SIMPLEPLANT, "simple plant", 15,0 ,140);
       	simpleplant.attributes = 192;
-        simpleplant.behaviour = 1;
+        //simpleplant.behaviour = 1;
         simpleplant.elasticity = 0;
         ticker = getRandom(3, 5);
         simpleplant.tick = ticker;

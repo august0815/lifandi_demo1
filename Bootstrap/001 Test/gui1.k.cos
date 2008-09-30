@@ -22,6 +22,8 @@
  *      This file was autocompiled with kaos written by Bryan Donlan   *
  ***********************************************************************
 
+FILE GLOB 1 "TEST"
+DBG: OUTS WNAM
 NEW: COMP 1 2 5 "gui1" 79 0 7999
 SETA VA00 TARG
 SETV AVAR TARG 98 10
@@ -662,14 +664,32 @@ MESG WRIT TARG 2009
 ENDM
 
 SCRP 1 2 5 2005
+NEW: COMP 1 1 6 "e-progress" 3 2 8100
+ATTR 304
+FLTO 500 500
+WAIT 50
+INST SAVE
+KILL TARG
 ENDM
 
 SCRP 1 2 5 2004
+NEW: COMP 1 1 6 "e-progress" 3 2 8100
+ATTR 304
+ALPH 200 1
+FLTO 500 500
+WAIT 50
 WRLD "test"
+KILL TARG
 ENDM
 
 SCRP 1 2 5 2003
-LOAD "test"
+NEW: COMP 1 1 6 "e-progress" 3 1 8100
+ATTR 304
+ALPH 200 1
+FLTO 500 500
+WAIT 50
+INST LOAD "test"
+KILL TARG
 ENDM
 
 SCRP 1 2 5 2002

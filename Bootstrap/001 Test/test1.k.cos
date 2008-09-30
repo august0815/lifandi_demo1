@@ -33,19 +33,62 @@ PTXT "FLORA"
 PAT: FIXD 2 "tool" 2 5 75 1 "blackontransparentchars"
 PART 2
 FRMT 6 6 6 6 1 1 2
-PTXT "SHOOTER"
-PAT: FIXD 3 "tool" 2 5 125 1 "blackontransparentchars"
+PTXT "PLANT 1"
+PAT: FIXD 3 "tool" 2 5 105 1 "blackontransparentchars"
 PART 3
 FRMT 6 6 6 6 1 1 2
-PTXT "PLANT1"
-PAT: BUTT 11 "tool" 4 1 115 75 0 [] 2001 1
-PAT: BUTT 12 "tool" 3 1 160 75 0 [] 2002 1
-PAT: FIXD 13 "tool" 5 110 125 1 "blackontransparentchars"
+PTXT "SHOOTER"
+PAT: TEXT 11 "tool" 5 110 75 1 2011 "blackontransparentchars"
+PART 11
+FRMT 6 6 6 6 1 1 2
+PTXT ""
+PAT: FIXD 12 "tool" 4 160 75 1 "blackontransparentchars"
+PART 12
+FRMT 6 6 6 6 1 1 2
+SETV VA00 GAME "plant1_max"
+PTXT VTOS GAME "plant1_max"
+PAT: TEXT 13 "tool" 5 110 105 1 2010 "blackontransparentchars"
 PART 13
 FRMT 6 6 6 6 1 1 2
-PTXT "5"
-PAT: BUTT 14 "tool" 4 1 160 125 0 [] 2003 1
-SCRP 1 1 253 2002
+PTXT ""
+PAT: FIXD 14 "tool" 4 160 105 1 "blackontransparentchars"
+PART 14
+FRMT 6 6 6 6 1 1 2
+SETV VA01 GAME "shooter_max"
+PTXT VTOS GAME "shooter_max"
+SCRP 1 1 253 2011
+TARG OWNR
+PART 11
+SETS VA00 PTXT
+SETS VA01 VA00
+SETV VA02 STOI VA01
+DOIF VA02 LT 0 OR VA02 GT 255
+SETV VA02 0
+ELSE
+ENDI
+PTXT ""
+PART 12
+PTXT VTOS VA02
+SETV GAME "plant1_max" VA02
+ENDM
+
+SCRP 1 1 253 2010
+TARG OWNR
+PART 13
+SETS VA00 PTXT
+SETS VA01 VA00
+SETV VA02 STOI VA01
+DOIF VA02 LT 0 OR VA02 GT 255
+SETV VA02 0
+ELSE
+ENDI
+PTXT ""
+PART 14
+PTXT VTOS VA02
+SETV GAME "shooter_max" VA02
+ENDM
+
+SCRP 1 1 253 2003
 ENUM 3 4 170
 KILL TARG
 
@@ -53,11 +96,11 @@ NEXT
 ENDM
 
 SCRP 1 1 253 2001
-JECT "shooter.k.cos" 7
+JECT "simpleplant1.k.cos" 7
 ENDM
 
-SCRP 1 1 253 2003
-JECT "simpleplant1.k.cos" 7
+SCRP 1 1 253 2002
+JECT "shooter.k.cos" 7
 ENDM
 
 SCRP 1 1 253 2000

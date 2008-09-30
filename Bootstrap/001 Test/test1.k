@@ -20,25 +20,8 @@
  */
 ovar numeric lauf[99];
 ovar numeric d[98];
- /** 
- * READ
- */
-define read(string a,numeric b) returning string
-{
-  _caos {
-     .inline let $return =READ $a(r) $b(r);
-    };
-  };
-   /** 
- * REAN
- */
-define rean(string a) returning numeric
-{
-  _caos {
-     .inline let $return =Rean $a(r) ;
-    };
-  };
- 
+
+
  install {string el;numeric ele;
        
         agent a = newcompound( F_INVISIBLE,G_SYSTEM,S_TEST1, "tool", 6, 0, 8100);
@@ -52,23 +35,33 @@ define rean(string a) returning numeric
        	a.newtextpart(2,"tool",2,5,75,1,"blackontransparentchars");
        	a.changepart(2);
        	a.textformat( 6, 6, 6, 6, 1, 1, 2);
-       	a.parttext="SHOOTER";
+       	a.parttext="PLANT 1";
        	
-       	a.newtextpart(3,"tool",2,5,125,1,"blackontransparentchars");
+       	a.newtextpart(3,"tool",2,5,105,1,"blackontransparentchars");
        	a.changepart(3);
        	a.textformat( 6, 6, 6, 6, 1, 1, 2);
-       	a.parttext="PLANT1";
-       	// Insert more
-       	
-       	
-       	a.newbutton(11, "tool",4,1,115,75,  0 ,"[]", 2001, 1);
-       	a.newbutton(12, "tool",3,1,160,75,  0 ,"[]", 2002, 1);
-        
-        a.newtextpart(13,"tool",5,110,125,1,"blackontransparentchars");
-       	a.changepart(13);
+       	a.parttext="SHOOTER";
+       	// Insert more 
+       	a.newtextinputpart(11,"tool",5,110,75,1,2011,"blackontransparentchars");
+       	a.changepart(11);
+       	//a.setfocus();
        	a.textformat( 6, 6, 6, 6, 1, 1, 2);
-       	a.parttext="5";
-       	a.newbutton(14, "tool",4,1,160,125,  0 ,"[]", 2003, 1);
+       	a.parttext="";
+       
+       	a.newtextpart(12,"tool",4,160,75,  1,"blackontransparentchars");
+        a.changepart(12);
+       	a.textformat( 6, 6, 6, 6, 1, 1, 2);
+        a.parttext=NumToStr(a.gamevarn("plant1_max"));
+        a.newtextinputpart(13,"tool",5,110,105,1,2010,"blackontransparentchars");
+       	a.changepart(13);
+       	//a.setfocus();
+       	a.textformat( 6, 6, 6, 6, 1, 1, 2);
+       	a.parttext="";
+       	
+       	a.newtextpart(14,"tool",4,160,105,1,"blackontransparentchars");
+       	a.changepart(14);
+       	a.textformat( 6, 6, 6, 6, 1, 1, 2);
+        a.parttext=NumToStr(a.gamevarn("shooter_max"));
        	
        	//Insert more
         }
@@ -77,18 +70,39 @@ script (  F_INVISIBLE,G_SYSTEM,S_TEST1, 2000) {agent a=owner;
   if(param1n==1){a.floatat(1,300);}
   if(param1n==0){a.floatat(-1000, -1000);}
   }  
-script (  F_INVISIBLE,G_SYSTEM,S_TEST1, 2003) {agent a=owner;
-  _caos{ject "simpleplant1.k.cos" 7;};
+script (  F_INVISIBLE,G_SYSTEM,S_TEST1, 2002) {agent a=owner;
+  injectScript("shooter.k.cos",JECT_ALLSCRIPTS );
   
   }  
 script (  F_INVISIBLE,G_SYSTEM,S_TEST1, 2001) {agent a=owner;
 
-  _caos{ject "shooter.k.cos" 7;};
+  injectScript("simpleplant1.k.cos", JECT_ALLSCRIPTS );
   
   }  
-script (  F_INVISIBLE,G_SYSTEM,S_TEST1, 2002) {agent a=owner; 
+  
+script (  F_INVISIBLE,G_SYSTEM,S_TEST1, 2003) {agent a=owner; 
   enum (F_VISIBLE2,G_GOODPLANT,S_SHOOTER) {|p| p.kill();}
   }
+  
+script (  F_INVISIBLE,G_SYSTEM,S_TEST1, 2010) {agent a=owner;string ein;numeric wert;
+  a.changepart(13);
+  ein=a.parttext;wert=StrToInt(ein);
+  if (wert<0 || wert>255) {ein="";wert=0;}
+  a.parttext="";
+  a.changepart(14);a.parttext=NumToStr(wert);
+  gamevarn("shooter_max")=wert;
+  
+  }  
+   
+script (  F_INVISIBLE,G_SYSTEM,S_TEST1, 2011) {agent a=owner;string ein;numeric wert;
+  a.changepart(11);
+  ein=a.parttext;wert=StrToInt(ein);
+  if (wert<0 || wert>255) {ein="";wert=0;}
+  a.parttext="";
+  a.changepart(12);a.parttext=NumToStr(wert);
+  gamevarn("plant1_max")=wert;
+  
+  }  
 remove {
      enum ( F_INVISIBLE,G_SYSTEM,S_TEST1) {|p| p.kill();}
          

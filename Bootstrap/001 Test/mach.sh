@@ -18,3 +18,10 @@ cat output.cos >> $1.cos
  sed 's/\]\"/\]/g' $TMP.tmp >$1.cos
 
 rm -f output.cos|exit
+# sed 's/&&/AND/g' $1.cos>$TMP.tmp
+# sed 's/||/OR/g' $TMP.tmp>$1.cos
+
+# cat $1.cos|tr [:upper:] [:lower:]>/usr/local/games/aqua/Bootstrap/000\ Switcher/$1.cos
+
+rm -f *.tmp
+rm -f tmp.k

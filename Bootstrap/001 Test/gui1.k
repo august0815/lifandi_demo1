@@ -36,18 +36,11 @@ define selfMessage( numeric msgno) {
 		MESG WRIT TARG  $msgno(r);
 	}
 }
-/** 
- * READ
- */
-define read(string a,numeric b) returning string
-{
-  _caos {
-     .inline let $return =READ $a(r) $b(r);
-    };
-  };
+
 
  install {
-            
+        _caos{file glob 1 "test";}; 
+        _caos{dbg: outs wnam;};   
         agent a = newcompound(F_INVISIBLE,G_GUI,S_GUI, "gui1", 79, 0, 7999);
         a.activ=10;a.activ1=2;a.activ2=20;
         //switch.changepart(-1);
@@ -124,10 +117,29 @@ script (F_INVISIBLE,G_GUI,S_GUI,2001) {agent a=owner;
  a.hidden=0;
   }
   
-script (F_INVISIBLE,G_GUI,S_GUI,2002) {quit("test");}
-script (F_INVISIBLE,G_GUI,S_GUI,2003) {loadWorld("test");}
-script (F_INVISIBLE,G_GUI,S_GUI,2004) {createWorld("test");}
-script (F_INVISIBLE,G_GUI,S_GUI,2005) {}
+script (F_INVISIBLE,G_GUI,S_GUI,2002) {quit();
+}
+script (F_INVISIBLE,G_GUI,S_GUI,2003) {
+       	agent a = newcompound( F_INVISIBLE,G_SYSTEM,S_PROG, "e-progress", 3, 1, 8100);
+        a.attributes = A_CAMERASHY|A_FLOATABLE|A_INVISIBLE;
+        alpha(200,1);
+        a.floatat(500,500);
+		wait (50);
+		loadWorld("test"); a.kill;}
+script (F_INVISIBLE,G_GUI,S_GUI,2004) {
+agent a = newcompound( F_INVISIBLE,G_SYSTEM,S_PROG, "e-progress", 3, 2, 8100);
+        a.attributes = A_CAMERASHY|A_FLOATABLE|A_INVISIBLE;
+        alpha(200,1);
+        a.floatat(500,500);
+		wait (50);	
+		createWorld("test");a.kill;}
+script (F_INVISIBLE,G_GUI,S_GUI,2005) {
+agent a = newcompound( F_INVISIBLE,G_SYSTEM,S_PROG, "e-progress", 3, 2, 8100);
+        a.attributes = A_CAMERASHY|A_FLOATABLE|A_INVISIBLE;
+        //alpha(256,1);
+        a.floatat(500,500);
+		wait (50);	
+		saveWorld();a.kill;}
 
 script (F_INVISIBLE,G_GUI,S_GUI,2006) {agent inventory=owner;//inventory.baseIndex=0;printn(inventory.base4);
 		 inventory.changepart(inventory.activ);inventory.baseIndex=0;
@@ -372,7 +384,7 @@ numeric gen;numeric spe;
         if (a.activ==12) {status=read("tool",what);	}
 		stats=(a.namestring(status));
         if (stats=="1") {setnamestring(status,"0");a.changepart(26);a.pose=1;a.changepart(25);a.pose=0;}
-         fam= StrToInt(read(status,0));
+        fam= StrToInt(read(status,0));
   		gen= StrToInt(read(status,1));
   		spe= StrToInt(read(status,2));
   		agent ag=randomagent(fam,gen,spe);
