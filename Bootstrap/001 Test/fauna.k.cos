@@ -1,0 +1,118 @@
+ ***********************************************************************
+ *             fauna.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: COMP 1 1 251 "tool" 6 0 8100
+ATTR 304
+ALPH 175 1
+FLTO -1000 -1000
+PAT: FIXD 1 "tool" 1 25 10 1 "blackontransparentchars"
+PART 1
+FRMT 6 6 6 6 1 1 2
+PTXT "FAUNA"
+PAT: FIXD 2 "tool" 2 5 75 1 "blackontransparentchars"
+PART 2
+FRMT 6 6 6 6 1 1 2
+PTXT "GRUB"
+PAT: FIXD 3 "tool" 2 5 105 1 "blackontransparentchars"
+PART 3
+FRMT 6 6 6 6 1 1 2
+PTXT "L_BUG"
+PAT: TEXT 11 "tool" 5 110 75 1 2011 "blackontransparentchars"
+PART 11
+FRMT 6 6 6 6 1 1 2
+PTXT ""
+PAT: FIXD 12 "tool" 4 160 75 1 "blackontransparentchars"
+PART 12
+FRMT 6 6 6 6 1 1 2
+SETV VA00 GAME "grub_max"
+PTXT VTOS GAME "grub_max"
+PAT: TEXT 13 "tool" 5 110 105 1 2010 "blackontransparentchars"
+PART 13
+FRMT 6 6 6 6 1 1 2
+PTXT ""
+PAT: FIXD 14 "tool" 4 160 105 1 "blackontransparentchars"
+PART 14
+FRMT 6 6 6 6 1 1 2
+SETV VA01 GAME "lbug_max"
+PTXT VTOS GAME "lbug_max"
+SCRP 1 1 251 2011
+TARG OWNR
+PART 11
+SETS VA00 PTXT
+SETS VA01 VA00
+SETV VA02 STOI VA01
+DOIF VA02 LT 0 OR VA02 GT 255
+SETV VA02 0
+ELSE
+ENDI
+PTXT ""
+PART 12
+PTXT VTOS VA02
+SETV GAME "grub_max" VA02
+ENDM
+
+SCRP 1 1 251 2010
+TARG OWNR
+PART 13
+SETS VA00 PTXT
+SETS VA01 VA00
+SETV VA02 STOI VA01
+DOIF VA02 LT 0 OR VA02 GT 255
+SETV VA02 0
+ELSE
+ENDI
+PTXT ""
+PART 14
+PTXT VTOS VA02
+SETV GAME "lbug_max" VA02
+ENDM
+
+SCRP 1 1 251 2001
+JECT "simpleplant1.k.cos" 7
+ENDM
+
+SCRP 1 1 251 2002
+JECT "shooter.k.cos" 7
+ENDM
+
+SCRP 1 1 251 2000
+SETA VA00 OWNR
+DOIF _P1_ EQ 1
+TARG OWNR
+FLTO 1 300
+ELSE
+ENDI
+DOIF _P1_ EQ 0
+TARG OWNR
+FLTO -1000 -1000
+ELSE
+ENDI
+ENDM
+
+RSCR
+ENUM 1 1 251
+KILL TARG
+
+NEXT
+SCRX 1 1 251 2000
