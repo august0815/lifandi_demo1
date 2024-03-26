@@ -1,0 +1,83 @@
+ ***********************************************************************
+ *             control.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: SIMP 1 1 150 "blnk" 0 0 8000
+DCOR 1
+ATTR 16
+CLAC 0
+MVTO 1190 10
+NEW: SIMP 1 1 151 "blnk" 0 0 8000
+DCOR 1
+ATTR 16
+CLAC 0
+MVTO 1190 12
+NEW: SIMP 1 1 152 "blnk" 0 0 8000
+DCOR 1
+ATTR 16
+CLAC 0
+MVTO 530 460
+ENUM 1 1 150
+MESG WRT+ TARG 1000 1 0 0
+
+NEXT
+ENUM 1 1 151
+MESG WRT+ TARG 1000 0.95 0 0
+
+NEXT
+ENUM 1 1 152
+MESG WRT+ TARG 1000 1 0 0
+
+NEXT
+SCRP 1 1 152 1000
+ALTR 2 4 1
+ALTR 4 4 1
+ALTR 5 4 1
+ALTR 6 4 1
+KILL OWNR
+ENDM
+
+SCRP 1 1 151 1000
+EMIT 2 _P1_
+ENDM
+
+SCRP 1 1 150 1000
+EMIT 1 _P1_
+ENDM
+
+RSCR
+ENUM 1 1 152
+KILL TARG
+
+NEXT
+ENUM 1 1 151
+KILL TARG
+
+NEXT
+ENUM 1 1 150
+KILL TARG
+
+NEXT
+SCRX 1 1 150 1000
+SCRX 1 1 151 1000
+SCRX 1 1 152 1000

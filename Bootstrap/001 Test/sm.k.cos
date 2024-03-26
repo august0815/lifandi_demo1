@@ -1,0 +1,234 @@
+ ***********************************************************************
+ *             sm.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: COMP 3 3 10 "machine" 10 0 5000
+ATTR 6
+TICK 1
+PAT: BUTT 1 "machine" 1 2 34 148 0 [1 ] 2001 1
+PART 1
+ANIM [ 0 ]
+PAT: BUTT 2 "machine" 3 2 44 128 0 [1 ] 2002 1
+PART 2
+ANIM [ 0 ]
+PAT: BUTT 3 "machine" 5 2 10 120 0 [1 ] 2003 1
+PART 3
+ANIM [ 0 ]
+PAT: BUTT 4 "machine" 7 2 25 80 0 [1 ] 2004 1
+PART 4
+ANIM [ 0 ]
+PAT: BUTT 5 "machine" 9 2 56 80 0 [1 ] 2005 1
+PART 5
+ANIM [ 0 ]
+MVTO 110 660
+SCRP 3 3 10 2005
+SETA VA00 OWNR
+DOIF AVAR OWNR 74 EQ 0
+SETV AVAR OWNR 74 1
+PART 5
+TARG OWNR
+POSE 1
+NEW: SIMP 3 21 178 "ball" 35 7 5000
+ATTR 199
+ELAS 90
+AERO 10
+FRIC 90
+ACCG 1
+PERM 60
+MVTO 300 300
+SETV VA01 RAND 10 -10
+SETV VA02 RAND -3 -10
+VELO VA01 VA02
+ELSE
+SETV AVAR OWNR 74 0
+PART 5
+TARG OWNR
+POSE 0
+ENUM 3 21 178
+KILL TARG
+
+NEXT
+ENDI
+ENDM
+
+SCRP 3 3 10 2004
+SETV VA00 RAND 1 3
+DOIF VA00 EQ 1
+NEW: SIMP 3 21 177 "Baloon" 17 0 5000
+ATTR 198
+ELAS 5
+ACCG -0.3
+AERO 2
+MVTO 364 732
+ANIM [ 0 1 2 3 4 3 2 0 255 ]
+SETV VA01 RAND 30 140
+TICK VA01
+FRAT 4
+SETV VA02 RAND 5 -5
+VELO VA02 0
+ELSE
+DOIF VA00 EQ 2
+NEW: SIMP 3 21 177 "Baloon" 17 0 5000
+ATTR 198
+ELAS 5
+ACCG -0.3
+AERO 2
+MVTO 364 732
+ANIM [ 6 7 8 9 8 7 6 255 ]
+SETV VA03 RAND 30 140
+TICK VA03
+FRAT 4
+SETV VA04 RAND 5 -5
+VELO VA04 0
+ELSE
+DOIF VA00 EQ 3
+NEW: SIMP 3 21 177 "Baloon" 17 0 5000
+ATTR 198
+ELAS 5
+ACCG -0.3
+AERO 2
+MVTO 364 732
+ANIM [ 11 12 13 14 15 14 13 12 11 255 ]
+SETV VA05 RAND 30 140
+TICK VA05
+FRAT 4
+SETV VA06 RAND 5 -5
+VELO VA06 0
+ELSE
+ENDI
+ENDI
+ENDI
+ENDM
+
+SCRP 3 3 10 2003
+SETA VA00 OWNR
+DOIF AVAR OWNR 72 EQ 0
+SETV AVAR OWNR 72 1
+PART 3
+TARG OWNR
+POSE 1
+NEW: SIMP 3 21 175 "Bubblejet" 6 0 5000
+ATTR 199
+ELAS 5
+CLAC 0
+FRAT 4
+MVTO 375 750
+SETV VA01 RAND 3 8
+VELO VA01 0
+ELSE
+SETV AVAR OWNR 72 0
+PART 3
+TARG OWNR
+POSE 0
+ENUM 3 21 175
+KILL TARG
+
+NEXT
+ENDI
+ENDM
+
+SCRP 3 3 10 2002
+SETA VA00 OWNR
+DOIF AVAR OWNR 71 EQ 0
+SETV AVAR OWNR 71 1
+PART 2
+TARG OWNR
+POSE 1
+NEW: SIMP 3 4 174 "Fruit" 9 0 5000
+ATTR 195
+ELAS 5
+SETV VA01 RAND 100 900
+SETV VA02 RAND 50 200
+MVTO VA01 VA02
+SETV AVAR TARG 54 0.1
+SETV AVAR TARG 58 0.3
+TICK 20
+SETV VA03 RAND 10 -10
+SETV VA04 RAND -3 -10
+VELO VA03 VA04
+ELSE
+SETV AVAR OWNR 71 0
+PART 2
+TARG OWNR
+POSE 0
+ENUM 3 4 174
+KILL TARG
+
+NEXT
+ENDI
+ENDM
+
+SCRP 3 3 10 2001
+SETA VA00 OWNR
+DOIF AVAR OWNR 70 EQ 0
+SETV AVAR OWNR 70 1
+PART 1
+TARG OWNR
+POSE 1
+SETV VA01 8
+LOOP
+SUBV VA01 1
+NEW: SIMP 3 4 171 "Seed" 16 3 5000
+ATTR 195
+ELAS 5
+MVTO 600 450
+SETV AVAR TARG 54 0.1
+SETV AVAR TARG 58 0.3
+TICK 20
+ANIM [ 3 4 5 6 7 8 9 10 11 12 255 ]
+SETV VA02 RAND 10 -10
+SETV VA03 RAND -3 -10
+VELO VA02 VA03
+UNTL VA01 EQ 0
+
+ELSE
+SETV AVAR OWNR 70 0
+PART 1
+TARG OWNR
+POSE 0
+ENUM 3 4 171
+KILL TARG
+
+NEXT
+ENDI
+ENDM
+
+RSCR
+ENUM 3 3 10
+KILL TARG
+
+NEXT
+ENUM 3 21 177
+KILL TARG
+
+NEXT
+SCRX 3 3 10 9
+SCRX 3 3 10 2001
+SCRX 3 3 10 2002
+SCRX 3 3 10 2003
+SCRX 3 21 178 9
+SCRX 3 21 175 1
+SCRX 3 21 175 2
+SCRX 3 21 175 9
+SCRX 3 4 174 9
+SCRX 3 4 171 9

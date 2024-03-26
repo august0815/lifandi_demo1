@@ -1,0 +1,171 @@
+ ***********************************************************************
+ *             shooter.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: SIMP 3 4 170 "shooter" 9 0 5000
+SETA VA00 TARG
+ATTR 192
+ELAS 0
+SETA AVAR TARG 17 NULL
+SETA AVAR TARG 18 NULL
+SETV AVAR TARG 80 10
+SETV AVAR TARG 50 0.5
+SETV AVAR TARG 58 0.3
+SETV AVAR TARG 54 0.2
+SETV AVAR TARG 62 0.2
+TICK AVAR TARG 80
+SETV VA01 RAND 200 800
+MVTO VA01 300
+SCRP 3 4 171 9
+SETA VA00 OWNR
+TARG OWNR
+SETV VA01 GAME "shooter_max"
+SETV VA02 TOTL 3 4 170
+SETV VA03 ROOM VA00
+SETV VA04 ROOM VA00
+SETV VA05 PROP VA04 2
+SETV VA06 ROOM VA00
+SETV VA07 PROP VA06 3
+SETV VA08 ROOM VA00
+SETV VA09 PROP VA08 4
+SETV VA10 AVAR VA00 1
+ADDV VA10 1
+SETV AVAR OWNR 1 VA10
+SETV VA11 AVAR VA00 0
+ADDV VA11 1
+SETV AVAR OWNR 0 VA11
+DOIF AVAR OWNR 1 GT 500
+TARG OWNR
+ADDV VA09 0.1
+ALTR ROOM TARG 4 VA09
+ANIM [ 3 2 1 ]
+KILL OWNR
+ELSE
+ENDI
+DOIF VA05 GT AVAR OWNR 54 AND VA07 GT AVAR OWNR 58
+SETA VA12 VA00
+DOIF AVAR OWNR 0 EQ 20
+TARG OWNR
+DOIF VA02 GT VA01
+KILL OWNR
+ELSE
+ENDI
+SETV VA13 POSL
+SUBV VA13 5
+SETV VA14 POST
+SUBV VA14 60
+NEW: SIMP 3 4 170 "shooter" 9 0 5000
+SETA VA15 TARG
+ATTR 192
+ELAS 0
+SETA AVAR TARG 17 NULL
+SETA AVAR TARG 18 NULL
+SETV AVAR TARG 80 10
+SETV AVAR TARG 50 0.5
+SETV AVAR TARG 58 0.3
+SETV AVAR TARG 54 0.2
+SETV AVAR TARG 62 0.2
+TICK AVAR TARG 80
+MVTO VA13 VA14
+ELSE
+ENDI
+ELSE
+ENDI
+DOIF AVAR OWNR 0 EQ 20
+KILL OWNR
+ELSE
+ENDI
+ENDM
+
+SCRP 3 4 170 9
+SETA VA00 OWNR
+TARG OWNR
+SETV VA01 POSL
+SETV VA02 POST
+SETV VA03 ROOM VA00
+SETV VA04 PROP VA03 1
+SETV VA05 ROOM VA00
+SETV VA06 PROP VA05 2
+SETV VA07 ROOM VA00
+SETV VA08 PROP VA07 3
+SETV VA09 ROOM VA00
+SETV VA10 PROP VA09 4
+SETV VA11 AVAR VA00 1
+ADDV VA11 1
+SETV AVAR OWNR 1 VA11
+DOIF AVAR OWNR 1 GT 100
+ADDV VA10 0.2
+SETV VA12 VA10
+ALTR ROOM TARG 4 VA12
+KILL OWNR
+ELSE
+ENDI
+DOIF VA04 GT AVAR OWNR 50 AND VA06 GT AVAR OWNR 54 AND VA08 GT AVAR OWNR 58
+TARG OWNR
+SETV VA13 POSE
+ADDV VA13 1
+DOIF VA13 LE 8
+TARG OWNR
+SETV VA14 VA13
+POSE VA14
+SUBV VA10 0.1
+SUBV VA08 0.1
+ALTR ROOM TARG 4 VA10
+ALTR ROOM TARG 3 VA08
+ELSE
+ENDI
+DOIF VA13 EQ 8
+SETV VA15 2
+LOOP
+NEW: SIMP 3 4 171 "Seed" 16 3 5000
+ATTR 195
+ELAS 5
+BHVR 48
+MVTO VA01 VA02
+SETV AVAR TARG 54 0.1
+SETV AVAR TARG 58 0.3
+TICK 20
+ANIM [ 3 4 5 6 7 8 9 10 11 12 255 ]
+SETV VA16 RAND 10 -10
+SETV VA17 RAND -3 -10
+VELO VA16 VA17
+SUBV VA15 1
+UNTL VA15 EQ 0
+
+ELSE
+ENDI
+ELSE
+ENDI
+ENDM
+
+RSCR
+ENUM 3 4 170
+KILL TARG
+
+NEXT
+ENUM 3 4 171
+KILL TARG
+
+NEXT
+SCRX 3 4 170 9
+SCRX 3 4 171 9

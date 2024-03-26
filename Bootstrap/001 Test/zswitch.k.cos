@@ -1,0 +1,106 @@
+ ***********************************************************************
+ *             zswitch.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: COMP 2 2 180 "demo2" 3 0 7990
+ATTR 52
+PART -1
+ALPH 256 1
+PART 0
+POSE 0
+PAT: DULL 2 "demo2" 1 50 50 0
+PAT: FIXD 4 "demo2" 2 60 80 0 "blackontransparentchars"
+PART 4
+FRMT 0 0 0 0 2 0 2
+PAT: FIXD 5 "demo2" 2 60 110 0 "blackontransparentchars"
+PART 5
+FRMT 0 0 0 0 2 0 2
+PAT: FIXD 6 "demo2" 2 60 140 0 "blackontransparentchars"
+PART 6
+FRMT 0 0 0 0 2 0 2
+PAT: FIXD 7 "demo2" 2 60 230 0 "blackontransparentchars"
+PART 7
+FRMT 0 0 0 0 2 0 2
+PART 4
+PTXT "*******Welcome to the Demo of 'lifandi' , for openc2e.*******"
+PART 5
+PTXT "***For more information see http://lifandi.ccdevnet.org .***"
+PART 6
+PTXT "This demo is very simple demo, click to get to the demoworld "
+PART 7
+PTXT "Please click "
+CLAC 0
+SETV AVAR TARG 74 0
+FLTO 202 1
+MESG WRT+ TARG 2000 0 0 0
+MESG WRT+ TARG 500 0 0 0
+SCRP 2 2 180 1
+MESG WRT+ OWNR 500 0 0 0
+ENDM
+
+SCRP 2 2 180 500
+
+LOOP
+ADDV VA00 32
+PART -1
+SETV VA01 VA00
+ALPH VA01 1
+WAIT 1
+UNTL VA00 GT 256
+
+WAIT 10
+TARG OWNR
+FLTO -1000 -1000
+ENDM
+
+SCRP 2 2 180 2000
+INST
+LOCK
+TICK 0
+SETA VA00 OWNR
+DOIF AVAR OWNR 74 EQ 0
+LOCK
+PART -1
+SETV VA01 256
+LOOP
+SETV VA02 VA01
+ALPH VA02 1
+WAIT 1
+INST
+SUBV VA01 10
+UNTL VA01 LT 0
+
+ALPH VA01 0
+SETV AVAR OWNR 74 1
+ELSE
+ENDI
+ENDM
+
+RSCR
+ENUM 2 2 180
+KILL TARG
+
+NEXT
+SCRX 2 2 180 1
+SCRX 2 2 180 2001
+SCRX 2 2 180 500

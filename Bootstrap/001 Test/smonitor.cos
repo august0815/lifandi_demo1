@@ -1,0 +1,88 @@
+ ***********************************************************************
+ *      Prototyp simple monitor.cos
+ *      
+ *      Copyright 2008 august0815<augustulus@freenet.de> (Marcec Mario)
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ * Used in room demo1
+ ***********************************************************************
+ * For Test and Welcome Screen 
+ * 13.08.08
+ *
+ ***********************************************************************
+ * Variable used :
+ *
+ *-TO DO 
+ *-
+ ***********************************************************************
+ *          VARIABLEN												   *
+ 
+ * 
+ ***********************************************************************
+    inst 
+	new: comp 1 1 11 "monitor" 6  0 5000
+	attr  199 
+	* 64
+	alph 125 1
+	setv ov01 1
+	* Start  Koordinaten
+	setv va00 25
+	*	erzeuge 10 Textfelder   (Teile 7-16)
+	reps 4
+ 	pat: fixd ov01 "monitor" 1 0  va00 0 "blackontransparentchars"
+ 	part ov01
+ 	alph 125 1
+	 frmt 1 1 1 1 1 1 0
+	 addv va00 25
+	 addv ov01 1
+	repe
+    tick 10
+	mvto 500 500
+    cmra 20 20 0
+scrp   1 1 11 9  
+    part 1
+	sets va00  "World Ticks "
+	setv  va01 wtik
+    sets va02 vtos va01 
+	adds va00 va02
+	ptxt va00
+	
+	part 2
+	sets va00  "World Time "
+	setv  va01 time
+    sets va02 vtos va01 
+	adds va00 va02
+	ptxt va00
+    part 3
+	sets va00  "World Day "
+	setv  va01 date
+    sets va02 vtos va01 
+	adds va00 va02
+	ptxt va00
+	part 4
+	sets va00  "World Season "
+	setv  va01 sean 
+    sets va02 vtos va01 
+	adds va00 va02
+	ptxt va00
+endm	
+rscr
+enum 1 1 11
+	kill targ
+next
+scrx 1 1 11 9	
+	

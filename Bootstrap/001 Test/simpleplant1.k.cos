@@ -1,0 +1,87 @@
+ ***********************************************************************
+ *             simpleplant1.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+SETV VA00 5
+LOOP
+NEW: SIMP 2 4 4 "simple plant" 15 0 140
+ATTR 192
+ELAS 0
+SETV VA01 RAND 3 5
+TICK VA01
+SETV VA02 RAND 500 960
+MVTO VA02 300
+SETV AVAR TARG 0 0
+SETV AVAR TARG 90 1
+SETV AVAR TARG 89 0
+SUBV VA00 1
+UNTL VA00 EQ 0
+
+SCRP 2 4 4 9
+SETA VA00 OWNR
+DOIF AVAR OWNR 0 EQ 0
+TARG OWNR
+SETV VA01 POSE
+DOIF VA01 LT 14
+TARG OWNR
+ADDV VA01 1
+POSE VA01
+ELSE
+SETA VA02 VA00
+SETV VA03 AVAR VA02 89
+ADDV VA03 1
+SETV AVAR OWNR 89 VA03
+ENDI
+DOIF AVAR OWNR 89 EQ 50
+TARG OWNR
+SETV AVAR OWNR 0 1
+TICK AVAR OWNR 90
+ELSE
+ENDI
+ELSE
+TARG OWNR
+SETV VA04 POSE
+DOIF VA04 GT 0
+SUBV VA04 1
+DOIF VA04 LT 0
+SETV VA04 0
+ELSE
+ENDI
+TARG OWNR
+POSE VA04
+ELSE
+TARG OWNR
+SETV AVAR OWNR 0 0
+SETV AVAR OWNR 89 0
+SETV AVAR OWNR 90 1
+TICK 1
+ENDI
+ENDI
+ENDM
+
+RSCR
+ENUM 2 4 4
+KILL TARG
+
+NEXT
+SCRX 2 4 4 9

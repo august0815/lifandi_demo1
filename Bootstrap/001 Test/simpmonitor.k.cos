@@ -1,0 +1,254 @@
+ ***********************************************************************
+ *             simpmonitor.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: COMP 1 1 10 "monitor" 8 4 5000
+ATTR 292
+FLTO 210 860
+TICK 1
+PAT: TEXT 1 "monitor" 6 200 0 0 0 "blackontransparentchars"
+PART 1
+FRMT 1 1 1 1 1 1 0
+PAT: TEXT 2 "monitor" 7 450 0 0 0 "blackontransparentchars"
+PART 2
+FRMT 1 1 1 1 1 1 0
+PAT: TEXT 3 "monitor" 5 600 0 0 0 "blackontransparentchars"
+PART 3
+FRMT 1 1 1 1 1 1 0
+PAT: TEXT 4 "monitor" 5 800 0 0 0 "blackontransparentchars"
+PART 4
+FRMT 1 1 1 1 1 1 0
+IMSK 8
+PAT: TEXT 5 "monitor" 8 91 0 0 0 "blackontransparentchars"
+PART 5
+FRMT 1 1 1 1 1 1 0
+IMSK 8
+PAT: TEXT 6 "monitor" 8 91 12 0 0 "blackontransparentchars"
+PART 6
+FRMT 1 1 1 1 1 1 0
+IMSK 8
+TICK 1
+SCRP 1 1 10 2000
+SETA VA00 OWNR
+DOIF _P1_ EQ 1
+TARG OWNR
+FLTO 210 860
+TICK 2
+DBG: OUTS "AN"
+ELSE
+ENDI
+DOIF _P1_ EQ 0
+TARG OWNR
+FLTO -1000 -1000
+TICK 0
+DBG: OUTS "AUS"
+ELSE
+ENDI
+ENDM
+
+SCRP 1 1 10 76
+TARG OWNR
+PART 4
+SETV VA00 _P1_
+SETV VA01 NAME "ca"
+DOIF VA00 EQ 1
+ADDV VA01 1
+ELSE
+DOIF VA00 EQ 2
+SUBV VA01 1
+ELSE
+DOIF VA00 EQ 4
+SETV VA01 0
+ELSE
+ENDI
+ENDI
+ENDI
+DOIF VA01 LT 0
+SETV VA01 0
+ELSE
+DOIF VA01 GT 9
+SETV VA01 9
+ELSE
+ENDI
+ENDI
+SETV NAME "ca" VA01
+ENDM
+
+SCRP 1 1 10 9
+SETA VA00 OWNR
+TARG OWNR
+SETS VA01 "Room "
+PART 1
+SETV VA02 MOPX
+SETV VA03 MOPY
+SETV VA04 GRAP VA02 VA03
+ADDS VA01 VTOS VA04
+DOIF VA04 GT -1
+ADDS VA01 "@"
+SETV VA05 VA04
+ADDS VA01 RLOC VA05
+ELSE
+ENDI
+PTXT VA01
+PART 2
+SETS VA06 "Type "
+SETV VA07 RTYP VA04
+DOIF VA07 EQ 0
+ADDS VA06 "AIR "
+ELSE
+DOIF VA07 EQ 1
+ADDS VA06 "Woodn Walkway "
+ELSE
+DOIF VA07 EQ 2
+ADDS VA06 "Concrete Walkway"
+ELSE
+DOIF VA07 EQ 3
+ADDS VA06 "Indoor Concrete"
+ELSE
+DOIF VA07 EQ 4
+ADDS VA06 "Outdoor Concrete "
+ELSE
+DOIF VA07 EQ 5
+ADDS VA06 "Normal Soil"
+ELSE
+DOIF VA07 EQ 6
+ADDS VA06 "Boggy Soil"
+ELSE
+DOIF VA07 EQ 7
+ADDS VA06 "Draind Soil"
+ELSE
+DOIF VA07 EQ 8
+ADDS VA06 "Fresh Water"
+ELSE
+DOIF VA07 EQ 9
+ADDS VA06 "Salt Water"
+ELSE
+ADDS VA06 " ERROR "
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+PTXT VA06
+PART 3
+SETS VA08 "   CA   :  "
+SETV VA09 NAME "ca"
+ADDS VA08 VTOS VA09
+DOIF VA09 EQ 0
+ADDS VA08 " Sound "
+ELSE
+DOIF VA09 EQ 1
+ADDS VA08 " Light "
+ELSE
+DOIF VA09 EQ 2
+ADDS VA08 " Heat "
+ELSE
+DOIF VA09 EQ 3
+ADDS VA08 " Water form sky "
+ELSE
+DOIF VA09 EQ 4
+ADDS VA08 " Nutrient "
+ELSE
+DOIF VA09 EQ 5
+ADDS VA08 " Water "
+ELSE
+DOIF VA09 EQ 6
+ADDS VA08 " Protein "
+ELSE
+DOIF VA09 EQ 7
+ADDS VA08 " Carbonhydrate "
+ELSE
+DOIF VA09 EQ 8
+ADDS VA08 " Fat "
+ELSE
+DOIF VA09 EQ 9
+ADDS VA08 " Machinery "
+ELSE
+ADDS VA08 " ERROR "
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+ENDI
+PTXT VA08
+PART 4
+SETS VA10 ""
+DOIF VA04 GT -1
+TARG OWNR
+SETV VA11 NAME "ca"
+SETV VA12 PROP VA04 VA11
+SETS VA10 VTOS VA12
+ELSE
+SETS VA10 ""
+ENDI
+ADDS VA10 " targ :  "
+SETA VA13 HOTS
+DOIF HOTS EQ NULL
+ADDS VA10 "-"
+ELSE
+TARG HOTS
+SETV VA14 FMLY
+ADDS VA10 VTOS FMLY
+ADDS VA10 " "
+SETV VA15 GNUS
+ADDS VA10 VTOS GNUS
+ADDS VA10 " "
+SETV VA16 SPCS
+ADDS VA10 VTOS SPCS
+ENDI
+TARG OWNR
+PTXT VA10
+PART 5
+SETS VA17 "X:"
+TARG PNTR
+SETV VA18 POSL
+TARG OWNR
+ADDS VA17 VTOS VA18
+PTXT VA17
+PART 6
+SETS VA19 "Y:"
+TARG PNTR
+SETV VA20 POST
+TARG OWNR
+ADDS VA19 VTOS VA20
+PTXT VA19
+ENDM
+
+RSCR
+ENUM 1 1 10
+KILL TARG
+
+NEXT
+SCRX 1 1 10 9
+SCRX 1 1 10 76
+SCRX 1 1 10 2000

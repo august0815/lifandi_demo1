@@ -1,0 +1,237 @@
+ ***********************************************************************
+ *             weather.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+NEW: SIMP 1 1 190 "blnk" 0 0 1
+DCOR 1
+ATTR 16
+SETV VA00 RAND 50 100
+SETV VA01 RAND 50 100
+MVTO VA00 VA01
+TICK 200
+SCRP 3 19 195 9
+TARG OWNR
+SETV VA00 FALL
+DOIF VA00 EQ 0
+ALTR ROOM TARG 3 0.8
+KILL OWNR
+ELSE
+ENDI
+ENDM
+
+SCRP 3 19 194 9
+TARG OWNR
+SETV VA00 FALL
+DOIF VA00 EQ 0
+ALTR ROOM TARG 3 0.4
+KILL OWNR
+ELSE
+ENDI
+ENDM
+
+SCRP 3 19 191 9
+SETV VA00 250
+LOOP
+SETV VA01 VA00
+ALPH VA01 1
+WAIT 3
+SUBV VA00 10
+UNTL VA00 LT 0
+
+SETV VA02 RAND 30 50
+LOOP
+TARG OWNR
+SETV VA03 POSX
+TARG OWNR
+SETV VA04 POSY
+ADDV VA03 RAND -60 60
+SETV VA05 RAND 1 600
+INST
+NEW: SIMP 3 19 195 "rain" 2 0 VA05
+ATTR 194
+BHVR 0
+ACCG 4.5
+ELAS 0
+AERO 30
+TICK 1
+MVTO VA03 VA04
+WAIT RAND 4 6
+SUBV VA02 1
+UNTL VA02 EQ 0
+
+KILL OWNR
+ENDM
+
+SCRP 3 19 192 9
+SETV VA00 250
+LOOP
+SETV VA01 VA00
+ALPH VA01 1
+WAIT 3
+SUBV VA00 10
+UNTL VA00 LT 0
+
+SETV VA02 RAND 30 50
+LOOP
+TARG OWNR
+SETV VA03 POSX
+TARG OWNR
+SETV VA04 POSY
+ADDV VA03 RAND -60 60
+SETV VA05 RAND 1 600
+INST
+NEW: SIMP 3 19 194 "rain" 2 1 VA05
+ATTR 194
+BHVR 0
+ACCG 4.5
+ELAS 0
+AERO 30
+TICK 1
+MVTO VA03 VA04
+WAIT RAND 4 6
+SUBV VA02 1
+UNTL VA02 EQ 0
+
+KILL OWNR
+ENDM
+
+SCRP 3 19 193 9
+SETV VA00 RAND 120 290
+SETV VA01 250
+LOOP
+SETV VA02 VA01
+ALPH VA02 1
+WAIT 3
+SUBV VA01 10
+UNTL VA01 LT 0
+
+
+WAIT VA00
+LOOP
+SETV VA04 VA03
+ALPH VA04 1
+WAIT 3
+ADDV VA03 30
+UNTL VA03 GT 250
+
+KILL OWNR
+ENDM
+
+SCRP 1 1 190 9
+SETV VA00 RAND 0 15
+DOIF VA00 LT 9
+SETV VA01 RAND 3 5
+SETV VA02 RAND 800 4000
+SETV VA03 RAND -6 6
+LOOP
+SUBV VA01 1
+SETV VA04 RAND 0 700
+INST
+NEW: SIMP 3 19 193 "cloud" 3 0 VA02
+ALPH 250 1
+ATTR 194
+BHVR 0
+ACCG -0.2
+ELAS 0.3
+TICK 1
+MVTO VA04 50
+VELO VA03 0
+UNTL VA01 EQ 0
+
+ELSE
+DOIF VA00 GE 9 AND VA00 LT 12
+SETV VA05 RAND 3 5
+SETV VA06 RAND 3000 5000
+SETV VA07 RAND -6 6
+LOOP
+SUBV VA05 1
+SETV VA08 RAND 0 700
+INST
+NEW: SIMP 3 19 192 "cloud" 3 1 VA06
+ALPH 250 1
+ATTR 194
+BHVR 0
+ACCG -0.2
+ELAS 0.3
+TICK 1
+MVTO VA08 50
+VELO VA07 0
+UNTL VA05 EQ 0
+
+ELSE
+DOIF VA00 GE 12
+SETV VA09 RAND 3 5
+SETV VA10 RAND 4000 6000
+SETV VA11 RAND -6 6
+LOOP
+SUBV VA09 1
+INST
+SETV VA12 RAND 0 700
+NEW: SIMP 3 19 191 "cloud" 3 2 VA10
+ALPH 250 1
+ATTR 194
+BHVR 0
+ACCG -0.2
+ELAS 0.3
+TICK 1
+MVTO VA12 50
+VELO VA11 0
+UNTL VA09 EQ 0
+
+ELSE
+ENDI
+ENDI
+ENDI
+ENDM
+
+RSCR
+ENUM 1 1 190
+KILL TARG
+
+NEXT
+ENUM 3 19 193
+KILL TARG
+
+NEXT
+ENUM 3 19 192
+KILL TARG
+
+NEXT
+ENUM 3 19 191
+KILL TARG
+
+NEXT
+ENUM 3 19 194
+KILL TARG
+
+NEXT
+ENUM 3 19 195
+KILL TARG
+
+NEXT
+SCRX 1 1 190 9
+SCRX 3 19 193 9
+SCRX 3 19 192 9
+SCRX 3 19 191 9
+SCRX 3 19 194 9
+SCRX 3 19 195 9

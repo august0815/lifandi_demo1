@@ -1,0 +1,14 @@
+
+* Set time lengths
+setv game "engine_LengthOfDayInMinutes" 1
+setv game "engine_LengthOfSeasonInDays" 1
+setv game "engine_NumberOfSeasons" 4
+
+*
+SETV GAME "shooter_max" 15
+SETV GAME "plant1_max"   5
+SETV GAME "grub_max"    10
+SETV GAME "lbug_max"    20
+
+
+rgam

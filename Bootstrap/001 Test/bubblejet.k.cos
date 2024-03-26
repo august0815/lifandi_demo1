@@ -1,0 +1,81 @@
+ ***********************************************************************
+ *             bubblejet.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+SCRP 3 21 176 9
+LOCK
+TARG OWNR
+POSE 5
+TARG OWNR
+ACCG 10
+WAIT 10
+KILL OWNR
+ENDM
+
+SCRP 3 21 175 9
+TARG OWNR
+SETV VA00 POSL
+SETV VA01 POST
+SUBV VA01 30
+LOCK
+ANIM [ 1 2 3 4 5 ]
+OVER
+NEW: SIMP 3 21 176 "bubble" 6 0 5000
+ATTR 192
+ELAS 5
+ACCG -0.3
+AERO 2
+MVTO VA00 VA01
+SETV VA02 RAND 20 70
+TICK VA02
+FRAT 4
+SETV VA03 RAND 3 -3
+VELO VA03 0
+ANIM [ 0 1 2 3 4 3 2 1 0 255 ]
+TARG OWNR
+ANIM [ 5 4 3 2 1 ]
+OVER
+ANIM [ 0 1 255 ]
+ENDM
+
+SCRP 3 21 175 2
+TARG OWNR
+TICK 0
+ANIM [ 0 ]
+CLAC 0
+ENDM
+
+SCRP 3 21 175 1
+TARG OWNR
+LOCK
+ANIM [ 0 1 255 ]
+TICK 20
+CLAC 1
+ENDM
+
+RSCR
+ENUM 3 21 176
+KILL TARG
+
+NEXT
+SCRX 3 21 176 9

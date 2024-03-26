@@ -1,0 +1,180 @@
+ ***********************************************************************
+ *             grub.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+SCRP 2 11 21 9
+SETA VA00 OWNR
+TARG OWNR
+SETV VA01 AVAR VA00 1
+ADDV VA01 1
+SETV AVAR OWNR 1 VA01
+SETV AVAR OWNR 41 RAND -1 1
+SETV AVAR OWNR 40 RAND 1 6
+WAIT RAND 1 10
+DOIF OBST RGHT LT 5
+SETV AVAR OWNR 42 1
+ELSE
+DOIF OBST LEFT LT 5
+SETV AVAR OWNR 42 2
+ELSE
+SETV AVAR OWNR 42 0
+ENDI
+ENDI
+SETA VA02 CARR
+SETV VA03 FALL
+DOIF VA02 EQ NULL AND VA03 EQ 0
+SETA VA04 VA00
+DOIF AVAR OWNR 42 EQ 1
+TARG OWNR
+LOOP
+SETA VA05 VA00
+SETV VA06 AVAR VA05 40
+SUBV VA06 1
+SETV AVAR OWNR 40 VA06
+ANIM [ 0 1 ]
+VELO -2 -1.5
+OVER
+ANIM [ 1 2 ]
+VELO -2 -1.5
+OVER
+ANIM [ 2 0 ]
+VELO -2 -1.5
+OVER
+SETA VA07 VA00
+UNTL AVAR OWNR 40 EQ 0
+
+ELSE
+ENDI
+SETA VA08 VA00
+DOIF AVAR OWNR 42 EQ 2
+TARG OWNR
+LOOP
+SETA VA09 VA00
+SETV VA10 AVAR VA09 40
+SUBV VA10 1
+SETV AVAR OWNR 40 VA10
+ANIM [ 0 1 ]
+VELO 2 -1.5
+OVER
+ANIM [ 1 2 ]
+VELO 2 -1.5
+OVER
+ANIM [ 2 0 ]
+VELO 2 -1.5
+OVER
+SETA VA11 VA00
+UNTL AVAR OWNR 40 EQ 0
+
+ELSE
+ENDI
+SETA VA12 VA00
+DOIF AVAR OWNR 41 EQ -1
+TARG OWNR
+LOOP
+SETA VA13 VA00
+SETV VA14 AVAR VA13 40
+SUBV VA14 1
+SETV AVAR OWNR 40 VA14
+ANIM [ 0 1 ]
+VELO -2 -1.5
+OVER
+ANIM [ 1 2 ]
+VELO -2 -1.5
+OVER
+ANIM [ 2 0 ]
+VELO -2 -1.5
+OVER
+SETA VA15 VA00
+UNTL AVAR OWNR 40 EQ 0
+
+ELSE
+ENDI
+SETA VA16 VA00
+DOIF AVAR OWNR 41 EQ 1
+TARG OWNR
+LOOP
+SETA VA17 VA00
+SETV VA18 AVAR VA17 40
+SUBV VA18 1
+SETV AVAR OWNR 40 VA18
+ANIM [ 0 1 ]
+VELO 2 -1.5
+OVER
+ANIM [ 1 2 ]
+VELO 2 -1.5
+OVER
+ANIM [ 2 0 ]
+VELO 2 -1.5
+OVER
+SETA VA19 VA00
+UNTL AVAR OWNR 40 EQ 0
+
+ELSE
+ENDI
+ELSE
+ENDI
+DOIF AVAR OWNR 1 EQ 10
+NEW: SIMP 2 11 22 "lightningbug" 28 0 500
+SETA VA20 TARG
+TARG OWNR
+SETV VA21 POSL
+SETV VA22 POST
+TARG VA20
+SUBV VA22 35
+ATTR 199
+BHVR 59
+SETV AVAR VA20 1 0
+ELAS 10
+ACCG 1
+PERM 45
+FRIC 99
+AERO 1
+SETV AVAR VA20 0 1
+FRAT 2
+TICK 1
+SETV AVAR VA20 40 0
+SETV AVAR VA20 41 0
+SETV AVAR VA20 42 0
+SETV AVAR VA20 43 0
+SETV AVAR VA20 30 0
+SETV AVAR VA20 31 4
+SETV AVAR VA20 32 1
+SETV AVAR VA20 33 7
+SETV AVAR VA20 34 7
+SETV AVAR VA20 35 12
+SETV AVAR VA20 36 10
+SETV AVAR VA20 37 16
+SETV AVAR VA20 38 14
+SETV AVAR VA20 39 22
+MVTO VA21 VA22
+KILL OWNR
+ELSE
+ENDI
+ENDM
+
+RSCR
+ENUM 2 11 21
+KILL TARG
+
+NEXT
+SCRX 2 11 21 9

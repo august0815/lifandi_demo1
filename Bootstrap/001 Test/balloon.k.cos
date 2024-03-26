@@ -1,0 +1,128 @@
+ ***********************************************************************
+ *             baloon.k.cos
+ ***********************************************************************
+ *            
+ *      Copyright 2008 august0815 <augustulus@freenet.de>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ ***********************************************************************
+ *      This file was autocompiled with kaos written by Bryan Donlan   *
+ ***********************************************************************
+
+SCRP 3 21 177 1000
+SETA VA00 OWNR
+TARG OWNR
+LOCK
+SETV VA01 POSE
+DOIF VA01 LT 5
+TARG OWNR
+POSE 5
+ELSE
+DOIF VA01 GT 5 && VA01 LT 10
+TARG OWNR
+POSE 10
+ELSE
+DOIF VA01 GT 10 && VA01 LT 16
+TARG OWNR
+POSE 16
+ELSE
+ENDI
+ENDI
+ENDI
+TARG OWNR
+ACCG 10
+WAIT 5
+KILL OWNR
+ENDM
+
+SCRP 3 21 177 9
+SETA VA00 OWNR
+TARG OWNR
+SETV VA01 AVAR VA00 1
+ADDV VA01 1
+SETV AVAR OWNR 1 VA01
+DOIF AVAR OWNR 1 GT 5
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+SETV VA02 ACCG
+ADDV VA02 0.1
+ACCG VA02
+LOCK
+ENDM
+
+SCRP 3 21 177 4
+SETA VA00 OWNR
+TARG OWNR
+INST
+SETV VA01 RAND -5 5
+SETV VA02 RAND -5 5
+VELO VA01 VA02
+SETV VA03 RAND 0 10
+DOIF VA03 EQ 0
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+ENDM
+
+SCRP 3 21 177 3
+SETA VA00 OWNR
+TARG OWNR
+INST
+SETV VA01 RAND -5 5
+SETV VA02 RAND -5 5
+VELO VA01 VA02
+SETV VA03 RAND 0 10
+DOIF VA03 EQ 0
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+ENDM
+
+SCRP 3 21 177 2
+SETA VA00 OWNR
+TARG OWNR
+INST
+SETV VA01 RAND -5 5
+SETV VA02 RAND -5 5
+VELO VA01 VA02
+SETV VA03 RAND 0 10
+DOIF VA03 EQ 0
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+ENDM
+
+SCRP 3 21 177 1
+SETA VA00 OWNR
+TARG OWNR
+INST
+SETV VA01 RAND -5 5
+SETV VA02 RAND -5 5
+VELO VA01 VA02
+SETV VA03 RAND 0 10
+DOIF VA03 EQ 0
+MESG WRIT OWNR 1000
+ELSE
+ENDI
+ENDM
+
+RSCR
+ENUM 3 21 177
+KILL TARG
+
+NEXT
+SCRX 3 21 177 9
